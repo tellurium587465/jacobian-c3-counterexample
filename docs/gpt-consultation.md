@@ -48,5 +48,61 @@ mis-stated invariant), improved honesty (removed a novelty over-claim), and impr
 the mathematics (a cleaner family). Every adopted claim is machine-checked in
 `src/verify.py` — Claude took nothing on GPT's word, and GPT took nothing on Claude's.
 
-*Raw prompt and reply are omitted for length; the substantive content is captured
-above and encoded as executable checks.*
+---
+
+# Round 2: n = 2 strategy triage
+
+Claude proposed four attack directions on the (open) plane case and asked for
+adversarial triage. GPT-5.6's verdicts (all subsequently verified or adopted):
+
+1. **D1 — the hyperbolic `C*`-shadow: execute.** GPT independently re-derived
+   Claude's shadow map and *improved* it: the `(τ,ρ) = (Ph·(s+1), 2Ph)` normal
+   form factoring `φ` through the universal marked cubic
+   (`τ³−2τ²+Bτ−2C = 0`, `ρ = 3τ²−4τ+B`, `det Dψ = −2Ph`, `det Dχ = −ρ/2`),
+   the inverse formulas on `ρ ≠ 0`, and the prediction that the nonproperness
+   set is the discriminant curve `Δ(B,C) = 0`. All verified exactly in
+   `src/n2/verify_n2.py` §6.
+2. **D3 — the `S₃`/quadratic-resolvent descent: killed with precision.** The
+   quadratic resolvent field is *not* an intermediate field of the cubic
+   extension (`E = N^{A₃}` vs `L = N^H`; neither contains the other), and any
+   resolvent double cover must *ramify* because `A²` has no nontrivial
+   connected finite étale covers. So "degree-3 counterexample ⟹ degree-2 Keller
+   map ⟹ contradiction" is unfixable; only a weak unconditional shape statement
+   survives.
+3. **D2 — linear-coefficient cubic models: not finite-dimensional** without
+   arbitrary degree bounds; but the clean sub-result stands: a *monic* cubic
+   model would give a connected finite étale degree-3 cover of `A²` —
+   impossible by simple connectedness. Any cubic mechanism in the plane must
+   have a rational primitive element plus boundary corrections.
+4. **D4 — classify hyperbolic equivariant plane Keller maps: worth doing** —
+   this became the rigidity theorem below.
+
+# Round 3: adversarial review of the rigidity theorem
+
+Claude proved: *every hyperbolically `C*`-equivariant Keller map of `A²` is
+linear (`(αx,βy)` or `(αy,βx)`)* — and submitted the proof for review.
+GPT-5.6's verdict: **"The theorem is true as stated… the proof survives"**, with
+three substantive improvements, all adopted and re-verified:
+
+* **The all-degrees identity** — Claude's Step 2 rested on a finite-degree
+  symbolic check; GPT supplied the general identity
+  `E(v) = (ad−bc)AB + v[(ap−bq)AB' + (qd−pc)A'B]`
+  (the `v²A'B'` terms cancel identically), which Claude verified with symbolic
+  exponents and generic functions — upgrading the check to a complete proof.
+* **Hypothesis trimming** — `gcd(p,q) = 1` is not load-bearing (reduce to the
+  effective action); algebraic closedness unnecessary; characteristic 0 is what
+  the top-coefficient argument actually uses.
+* **Sharper framing** — say "the shadow *does* descend; what fails is
+  *preservation of étaleness*, measured exactly by `Ph²`", not "failure to
+  descend". Plus the elliptic-weights corollary (resonant shears only) and the
+  character-twist corollary (`r = 0` forced).
+* **Novelty honesty** — "presumably standard to experts" is the defensible
+  wording for the rigidity lemma (negative-weight methods are classical); no
+  exact citation was found by either model.
+
+## Overall takeaway
+Across three rounds the two models alternated proposer/verifier roles. Every
+error found (two mathematical, one of framing, one of proof completeness) was
+found by the *other* model, and every fix was independently machine-verified
+before adoption. The result — shadow principle + normal form + rigidity theorem
++ documented dead ends — is stronger than what either model produced alone.

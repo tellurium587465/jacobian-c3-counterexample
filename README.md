@@ -61,6 +61,32 @@ why the `x`-projection is subtler than it looks, are in
 * The **suspension** to all `n >= 3`, and a careful account of why `n = 2` is
   untouched.
 
+## The n = 2 program (new)
+
+The plane Jacobian Conjecture remains **open**. [`docs/n2-program.md`](docs/n2-program.md)
+documents an honest attack on it, extracting everything the `n = 3` counterexample
+teaches about the plane:
+
+* **The shadow.** Alpoge's map is hyperbolically `C*`-equivariant; passing to
+  invariant rings induces an explicit **plane polynomial map** `phi` with
+  `det J_phi = 2(3s+w-2)²` — a perfect square vanishing on one line, which `phi`
+  contracts to the origin; `phi` is generically 3-to-1 with rational triple
+  collisions. The general **shadow principle** `det J_phi = -Ph²·det DF` (proven
+  symbolically) shows the entire 3D Keller condition compresses to a two-variable
+  bracket identity `-2Pf{Pg,Ph} + Pg{Pf,Ph} + Ph{Pf,Pg} = const`, and locates the
+  obstruction to descending the mechanism to a plane Keller map in the factor `Ph²`.
+* **Plane hyperbolic rigidity (small theorem).** Every hyperbolically
+  `C*`-equivariant Keller map of `A²` is a linear automorphism — so no plane
+  counterexample has the symmetry that Alpoge's `C³` counterexample enjoys.
+  Machine-checked case analysis; elementary, but it makes the `n=2` vs `n=3`
+  dimension gap precise.
+* **Dead ends, documented**: the `S₃`/quadratic-resolvent descent fails
+  (`E ⊄ L`, and resolvent covers must ramify since `A²` is simply connected);
+  monic cubic models die by simple connectedness; the essential open difficulty
+  is isolated as *boundary completion*.
+
+Verification: `python src/n2/verify_n2.py` (all exact, sympy only).
+
 ## Reproduce
 
 ```bash
@@ -68,6 +94,7 @@ pip install sympy
 python src/verify.py        # exact PASS/FAIL of every claim; exits 0 on success
 python src/collisions.py    # print rational triple-collision families
 python src/export_data.py   # rebuild data/ tables
+python src/n2/verify_n2.py  # the n=2 program: shadow + rigidity (all exact)
 ```
 Expected tail of `verify.py`:
 ```
@@ -81,8 +108,12 @@ src/counterexample.py   the map; fiber cubic (t-model); reconstruction; fiber()
 src/collisions.py       rational triple-collision generators (two families)
 src/verify.py           self-contained exact verification (24 checks)
 src/export_data.py      writes the data/ tables
+src/n2/shadow.py        the hyperbolic C*-shadow and the shadow principle
+src/n2/rigidity.py      plane hyperbolic rigidity (theorem + proof data)
+src/n2/verify_n2.py     exact verification of the n=2 program (30+ checks)
 data/                   verified collision tables (JSON + Markdown)
-docs/mechanism.md       the mathematics, with caveats
+docs/mechanism.md       the n=3 mathematics, with caveats
+docs/n2-program.md      the n=2 program: shadow, rigidity, dead ends
 docs/gpt-consultation.md how the GPT-5.6 adversarial review shaped this
 ```
 
