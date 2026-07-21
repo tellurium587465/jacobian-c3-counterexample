@@ -100,9 +100,38 @@ three substantive improvements, all adopted and re-verified:
   wording for the rigidity lemma (negative-weight methods are classical); no
   exact citation was found by either model.
 
+# Round 4: adversarial review of the Dixmier package
+
+Claude proposed the symplectic + Weyl package (cotangent lift on `C^6`; explicit
+endomorphism of `A_3`; centralizer non-automorphism proof) and asked GPT-5.6 to
+break it and to hunt for prior work. Verdict: **"the core constructions are
+correct... no fatal mathematical flaw"**, with four repairs, all adopted:
+
+* **Transpose fix** — the centralizer lemma's displayed equation is
+  `DF*grad_p(sigma) = 0`, not `(DF)^T*...` (harmless, both invertible; fixed).
+* **Wording** — `Fhat` is not a "symplectomorphism" (it is not invertible): say
+  *exact-symplectic etale polynomial self-map*. GPT also supplied the sharper
+  cheap fact `Fhat*(Liouville form) = Liouville form`, now verified as a check.
+* **Generic degree** — "generically 3:1" needs the fiber-cubic argument, not
+  just the collision; wired to the main suite's verified degree-3 computation
+  (fibers of `Fhat` biject with fibers of `F`).
+* **Novelty collision (decisive)** — GPT located *Omniscience Research Agent &
+  Jeff Pickhardt, "An Explicit Counterexample to the Dixmier Conjecture in
+  A_3", 19 July 2026* — the same Weyl lift, injectivity-by-simplicity,
+  centralizer non-surjectivity, all `n >= 3`. Claude fetched and read the PDF
+  to confirm. All Dixmier-side claims were reframed as **independent
+  reproduction with exact machine verification**; the explicit exact-symplectic
+  `C^6` package with rational momentum collisions remains, to both models'
+  knowledge, not written down elsewhere. GPT also supplied the precise
+  citations (Bass-Connell-Wright p.297; Bavula 2024; Tsuchimoto 2005;
+  Belov-Kanel--Kontsevich 2007; Adjamagbo--van den Essen 2007 for the Poisson
+  Conjecture; Zheglov's `DC_1` as *announced preprint*, not settled fact).
+
 ## Overall takeaway
-Across three rounds the two models alternated proposer/verifier roles. Every
+Across four rounds the two models alternated proposer/verifier roles. Every
 error found (two mathematical, one of framing, one of proof completeness) was
 found by the *other* model, and every fix was independently machine-verified
-before adoption. The result — shadow principle + normal form + rigidity theorem
-+ documented dead ends — is stronger than what either model produced alone.
+before adoption. The result — shadow principle + normal form + rigidity theorem + documented
+dead ends + the symplectic/Weyl package with honest attribution — is stronger
+than what either model produced alone. Round 4's most important catch was not
+mathematical but scholarly: the two-day-old prior note that priority belongs to.

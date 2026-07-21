@@ -61,7 +61,35 @@ why the `x`-projection is subtler than it looks, are in
 * The **suspension** to all `n >= 3`, and a careful account of why `n = 2` is
   untouched.
 
-## The n = 2 program (new)
+## The Dixmier conjecture falls too
+
+The **Dixmier conjecture** (1968) — every endomorphism of a Weyl algebra
+`A_n(C)` is an automorphism — is **false for all `n ≥ 3`** as a consequence of
+Alpoge's map. The explicit Weyl-algebra counterexample was first written down by
+**Omniscience Research Agent & Jeff Pickhardt** (19 July 2026); this repo
+independently reproduces it with exact machine verification, and adds the
+symplectic side ([`docs/dixmier.md`](docs/dixmier.md)):
+
+* **Symplectic step** (to our knowledge not explicitly written elsewhere): the
+  cotangent lift `Fhat(q,p) = (F(q), ((DF)^T)^{-1}p)` is an *exact-symplectic
+  étale* polynomial self-map of `C^6` — it preserves the Liouville one-form
+  (`Fhat*λ = λ`), has `det ≡ 1` — yet is non-injective, with an explicit
+  rational 3-point collision. The Jacobian Conjecture fails even for
+  exact-symplectic unimodular maps, and the **Poisson Conjecture** of
+  Adjamagbo–van den Essen fails in dimension 6.
+* **Quantum step**: `phi(q_i) = f_i(q)`, `phi(p_j) = Σ_k ((DF)^T)^{-1}[j,k](q)·p_k`
+  is a well-defined endomorphism of `A_3` (all relations reduce to verified
+  commutative identities), injective (simplicity), and **not surjective** — by
+  an elementary centralizer argument: surjectivity would force
+  `C[f,g,h] = C[q]`, contradicting the three-point collision. Hence `A_n`
+  (`n ≥ 3`) embeds properly into itself (not co-Hopfian).
+* **Status map**: `A_1` — announced proof of the conjecture (Zheglov,
+  [arXiv:2410.06959](https://arxiv.org/abs/2410.06959), preprint) · `A_2` open ·
+  `A_n (n≥3)` **false** — paralleling the Jacobian Conjecture itself.
+
+Verification: `python src/dixmier/verify_dixmier.py` (exact, sympy only).
+
+## The n = 2 program
 
 The plane Jacobian Conjecture remains **open**. [`docs/n2-program.md`](docs/n2-program.md)
 documents an honest attack on it, extracting everything the `n = 3` counterexample
@@ -91,10 +119,11 @@ Verification: `python src/n2/verify_n2.py` (all exact, sympy only).
 
 ```bash
 pip install sympy
-python src/verify.py        # exact PASS/FAIL of every claim; exits 0 on success
-python src/collisions.py    # print rational triple-collision families
-python src/export_data.py   # rebuild data/ tables
-python src/n2/verify_n2.py  # the n=2 program: shadow + rigidity (all exact)
+python src/verify.py                  # n=3 counterexample: 24 exact checks
+python src/collisions.py              # rational triple-collision families
+python src/export_data.py             # rebuild data/ tables
+python src/n2/verify_n2.py            # n=2 program: shadow + rigidity
+python src/dixmier/verify_dixmier.py  # Dixmier + symplectic C^6 package
 ```
 Expected tail of `verify.py`:
 ```
@@ -111,6 +140,9 @@ src/export_data.py      writes the data/ tables
 src/n2/shadow.py        the hyperbolic C*-shadow and the shadow principle
 src/n2/rigidity.py      plane hyperbolic rigidity (theorem + proof data)
 src/n2/verify_n2.py     exact verification of the n=2 program (30+ checks)
+src/dixmier/dixmier.py  cotangent lift; the explicit Weyl endomorphism of A_3
+src/dixmier/verify_dixmier.py  exact verification of the Dixmier package
+docs/dixmier.md         Dixmier conjecture: explicit counterexample + proof
 data/                   verified collision tables (JSON + Markdown)
 docs/mechanism.md       the n=3 mathematics, with caveats
 docs/n2-program.md      the n=2 program: shadow, rigidity, dead ends
