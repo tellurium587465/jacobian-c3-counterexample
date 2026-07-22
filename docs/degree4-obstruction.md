@@ -226,6 +226,35 @@ Either resolution is a major result: a **new counterexample of geometric
 degree 4** (answering our own public question), or the **complete closure of
 the graded quartic tower** with the exact formal/polynomial dichotomy.
 
+## 5c. The formal solution exists (round 9; 40-digit staged Gauss-Newton)
+
+The decisive computation ran (`src/quartic_gn_solver.py`; numerics, clearly
+labeled). Reduce the whole tower to: find `E, A, P₁` and `δ ≠ 0` with the
+support conditions and `det ∂(AE, P₁E², P₀E³)/∂S = δ·E⁵`,
+`P₀ = λH³ − EH⁴ − AH² − P₁H`, `λ = 2`. Then, at 40-digit precision:
+
+* staged Gauss-Newton solves **every** tested window (all coefficient
+  equations through weighted degree 6) to residuals `10⁻³⁵–10⁻³⁷` —
+  exact solvability at working precision, reproducibly from random seeds;
+* the same holds with **`δ` frozen at `11/128`** — the solution is
+  **non-degenerate** (the `det ≡ 0` trap is excluded; `δ` is
+  gauge-normalizable by `S₂,S₃`-scalings);
+* the stage structure is underdetermined at every degree
+  (`3p(m+3) > p(m)` unknowns vs equations), and every tested stage had
+  full-rank solvable systems — consistent with continuation to all orders.
+
+**So a *formal* graded Keller structure of geometric degree 4 exists** (to
+the tested order): the formal version of our public question answers YES.
+
+What is *not* yet settled: **polynomiality**. The degree-≤6 truncated
+solution satisfies its windows exactly but its full residual profile shows
+`O(10²)` violations at degrees 7–30 — the truncation does not extend as-is.
+The endgame is a finite search: for each truncation degree `D₀`, solve the
+overdetermined system (data `≤ D₀`, all equations through `~3D₀`) — a few
+compute-hours per `D₀` with the implemented solver. A convergent `D₀` yields
+the explicit counterexample; persistent floors across `D₀` build the
+formal-yes/polynomial-no dichotomy.
+
 ## 5. Realizable geometric degrees: the sharp open question
 
 With attributions checked in round 6:
