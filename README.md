@@ -1,5 +1,7 @@
 # Verifying and extending the 2026 Jacobian-Conjecture counterexample (n = 3)
 
+> 日本語の初心者向け解説: [docs/SUMMARY_JA.md](docs/SUMMARY_JA.md)
+
 In July 2026 **Levent Alpoge**, with AI assistance, announced an explicit
 polynomial map that refutes the **Jacobian Conjecture** in dimension 3 — an
 87-year-old open problem. This repository is a small, honest companion to that
