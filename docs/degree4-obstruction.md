@@ -119,6 +119,69 @@ trivial. The honest moral is sharper than the one we started with:
 > geometric degree 3 whose effective source and target weight multisets are
 > `{−1, 1, 2}`.
 
+## 5a. The second door also resists (round 7 of the loop)
+
+We then attacked the surviving pattern head-on with a **new marking identity**:
+`r := κ·t/x` has weight 2 (as the pattern requires), and inverts rationally —
+`x = κt/r`. Setting `P(T) = eT⁴ − λT³ + b₂T² + b₁T + b₀` with `b₁, b₀` defined
+by `P(t) = 0`, `P'(t) = r`:
+
+* **Polynomiality forces `κ = λ`** — the marking constant must equal the fixed
+  coefficient, exactly as in the cubic (`r = 2/x` against the fixed `−2`); one
+  branch, `e₀ = λ, e₁ = −3λ/2, c_y = λ/2, e₁₁ = 2λ − c_y2/3`, all scalable to
+  `λ = 2` (verified exactly, `verify_degree4.py` §5). So the `κ = λ = 2`
+  search below is fully general.
+* This leaves a genuine **12-parameter family of polynomial maps** on `C⁴`
+  containing quartic fiber structure — the obstruction of §2 is avoided
+  (`e = x·E` with `E(0) = 2 ≠ 0`).
+* Numerically, the Keller condition then showed a residual floor `≈ 1` in 12-
+  and 24-parameter ansätze (only degenerate `det ≡ 0` solutions; reproducible
+  via [`src/quartic_search.py`](../src/quartic_search.py)) — and the round-7
+  review turned that numerical floor into an **exact theorem**:
+
+> **Tower no-go theorem** (GPT-5.6 round 7; identity verified exactly in
+> `verify_degree4.py` §6). For the derivative-marked degree-`d` tower
+> (marking `P'(t) = λ·t^{d−3}/x`, with `κ = λ` forced), the invariant-chain
+> factorization gives the *universal factor*
+> ```
+> det ∂(T₁,…,T_{d−1})/∂(u, E, A_{d−2},…,A₂)  =  λ²·(1+u)^{2(d−3)}·E^{N_d}
+> ```
+> (verified for `d = 3, 4, 5` with `N = 2, 5, 9`). Hence for **every**
+> polynomial choice of the free data:
+> * `d ≥ 4`: `det DF = λ²(1+xy)^{2(d−3)}·(a polynomial bracket)` — it
+>   **vanishes on the hypersurface `xy = −1`** and can never be a nonzero
+>   constant. *No Keller map exists in the derivative-marked tower for any
+>   degree `d ≥ 4`.*
+> * `d = 3`: the factor is trivial, `det DF = −λ²·E_{s₂}` (constant iff `E`
+>   is linear in `s₂`), and Alpoge's `E = 2 − 3s₁ − s₂` recovers `det = −2`
+>   exactly. Moreover every solution (`E = f(s₁) + c·s₂`) is carried to
+>   Alpoge's by the graded gauge `z ↦ z + y²g(xy)` — within the tower,
+>   **degree 3 contains exactly the Alpoge orbit**.
+
+**Why 3 is special, in one sentence:** the marking `P'(t) = λt^{d−3}/x`
+vanishes at `t = 0` for every `d ≥ 4` — the marked root becomes critical on
+the hypersurface `{t = 0} = {xy = −1}` — while for `d = 3` the marking
+`λ/x` is nowhere-critical. The counterexample lives in degree 3 not by
+accident but by necessity of its own mechanism.
+
+Also from round 7, the **principal-part lemma**: for every degree `d`, the
+two leading pole cancellations force `E(0) = λ` and `κ = λ` — the marking
+constant, the fixed coefficient, and the leading value of `E` all coincide
+(in the cubic: the "2" of `r = 2/x`, of `−2T²`, and of `Ph(0) = 2` are the
+same 2).
+
+Status of the degree-4 question after this loop:
+
+* naive marking (`r = 2/x`): **dead** (§2, weight obstruction);
+* derivative marking (`r = λt^{d−3}/x`): **dead for all `d ≥ 4`** (tower
+  no-go theorem), and for `d = 3` it contains exactly the Alpoge orbit;
+* still open: non-derivative weight-`(d−2)` markings, reconstructions not
+  eliminating `(b₁, b₀)` from `P(t) = 0, P'(t) = r`, sparse/multi-fixed
+  coefficient models, `≥ 2` negative source weights
+  (`(−1, 1, −m, m+5)`-type), the monic pattern (pending a properness proof),
+  and non-graded constructions. Geometric degree 4 — if realizable at all —
+  must come from outside the entire derivative-marked tower class.
+
 ## 5. Realizable geometric degrees: the sharp open question
 
 With attributions checked in round 6:

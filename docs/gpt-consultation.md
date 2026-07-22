@@ -175,8 +175,35 @@ table, and a "graded uniqueness conjecture". Verdicts:
   public questions adopted: does geometric degree 4 occur? does any geometric
   degree with a prime divisor other than 3 occur?
 
+# Round 7: the tower no-go theorem
+
+Claude attacked the round-6 "open door" with a NEW marking identity
+r = kappa*t/x (weight 2, rationally invertible: x = kappa*t/r), proved the
+pole conditions force kappa = lambda (exactly), and reported a robust numeric
+no-go for the Keller condition (12- and 24-parameter ansatze, residual floor
+~1, only degenerate det=0 solutions). GPT-5.6's response was the decisive
+mathematical contribution of the session:
+
+* **The exact no-go identity.** Factoring the bundle determinant through the
+  intermediate variables (u, E, A): det d(AE, P1 E^2, P0 E^3)/d(u,E,A) =
+  lambda^2 (1+u)^2 E^5 -- universally. Hence det DF =
+  lambda^2 (1+xy)^2 {E,P2}-bracket, which VANISHES on xy = -1 for every
+  polynomial choice: the numeric floor was detecting the forced factor
+  (1+xy)^2. Claude verified the identity exactly, then extended it: the
+  universal factor is lambda^2 (1+u)^{2(d-3)} E^{N_d} (checked d = 3, 4, 5),
+  turning the observation into the "why 3 is special" tower theorem -- the
+  derivative marking t^{d-3} is critical at t = 0 for every d >= 4, and only
+  d = 3 escapes.
+* **The principal-part lemma**: E(0) = lambda and kappa = lambda in every
+  degree -- the cubic's three "2"s (r = 2/x, -2T^2, Ph(0) = 2) are one number.
+* **Scope discipline**: do not say "every natural graded quartic extension
+  fails" -- only the two classified one-negative-weight towers are closed; the
+  precise list of remaining doors (non-derivative markings, sparse models,
+  two-negative-weight patterns (-1,1,-m,m+5), the monic pattern pending a
+  properness proof, non-graded constructions) is recorded in the doc.
+
 ## Overall takeaway
-Across six rounds the two models alternated proposer/verifier roles. Every
+Across seven rounds the two models alternated proposer/verifier roles. Every
 error found (two mathematical, one of framing, one of proof completeness) was
 found by the *other* model, and every fix was independently machine-verified
 before adoption. The result — shadow principle + normal form + rigidity theorem + documented

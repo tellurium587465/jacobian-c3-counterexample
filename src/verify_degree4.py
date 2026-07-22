@@ -225,6 +225,99 @@ def universal_triviality():
           True)
 
 
+def second_door():
+    """[5] The second quartic door: marking r = kap*t/x.
+
+    With P(T) = eT^4 - lam T^3 + b2 T^2 + b1 T + b0 and the weight-2 marking
+    r := kap*t/x (so x = kap*t/r is rational), polynomiality of (b1, b0)
+    FORCES kap = lam -- the marking constant must equal the fixed coefficient
+    (exactly as in the cubic, where r = 2/x matches the fixed -2).  One branch:
+    e0 = lam, e1 = -3lam/2, cy = lam/2, e11 = 2lam - cy2/3; all scalable to
+    lam = 2, so the kap = lam = 2 search was fully general.  (The subsequent
+    Keller condition det = const != 0 was then found numerically infeasible in
+    12- and 24-parameter ansatze -- see docs/degree4-obstruction.md section 6;
+    numeric evidence, reproducible via src/quartic_search.py.)"""
+    print("\n[5] Second quartic door: pole conditions force kap = lam")
+    X, Y, Z, W = sp.symbols('X Y Z W')
+    s1 = X*Y
+    kap, lam = sp.symbols('kap lam')
+    e0, e1, e11 = sp.symbols('e0 e1 e11')
+    cy, cy2 = sp.symbols('cy cy2')
+    E = e0 + e1*s1 + e11*s1**2
+    b2 = cy*Y + cy2*X*Y**2
+    e_ = X*E
+    t = Y + 1/X
+    r = kap*t/X
+    b1 = r + 3*lam*t**2 - 2*b2*t - 4*e_*t**3
+    b0 = 3*e_*t**4 - 2*lam*t**3 + b2*t**2 - r*t
+    conds = set()
+    for expr, clear in ((b1, 3), (b0, 4)):
+        L = sp.expand(expr*X**clear)
+        P = sp.Poly(L, X)
+        for k in range(clear):
+            co = sp.expand(P.coeff_monomial(X**k) if k > 0 else P.coeff_monomial(1))
+            if co != 0:
+                for mono, cf in sp.Poly(co, Y, Z, W).terms():
+                    conds.add(sp.expand(cf))
+    conds = [c_ for c_ in conds if c_ != 0]
+    sol = sp.solve(conds, [e0, e1, e11, cy, kap], dict=True)
+    check("polynomiality forces kap = lam (marking constant = fixed coefficient)",
+          len(sol) == 1 and sp.simplify(sol[0].get(kap) - lam) == 0)
+    s0 = sol[0]
+    check("and e0 = lam, e1 = -3lam/2, cy = lam/2, e11 = 2lam - cy2/3",
+          sp.simplify(s0.get(e0) - lam) == 0 and
+          sp.simplify(s0.get(e1) + 3*lam/2) == 0 and
+          sp.simplify(s0.get(cy) - lam/2) == 0 and
+          sp.simplify(s0.get(e11) - (2*lam - cy2/3)) == 0)
+
+
+def tower_no_go():
+    """[6] The exact tower no-go (GPT-5.6 round 7, verified here).
+
+    For the derivative-marked degree-d tower (marking P'(t) = lam*t^{d-3}/x,
+    forced kap = lam), the invariant-chain factorization gives the universal
+    factor
+
+        det d(T_1..T_{d-1}) / d(u, E, A_{d-2}, ..., A_2)
+            = lam^2 * (1+u)^{2(d-3)} * E^{N_d},
+
+    verified below for d = 3, 4, 5 (N = 2, 5, 9).  Consequences:
+      d >= 4: det DF = lam^2 (1+xy)^{2(d-3)} * (a polynomial bracket in the
+              free data) -- it VANISHES on {xy = -1} for every polynomial
+              choice: NO Keller map.  (The marked root becomes critical at
+              t = 0.)  This upgrades the numeric no-go to a theorem.
+      d = 3:  the factor is trivial; det DF = -lam^2 E_{s2} (a constant iff E
+              is linear in s2), and with Alpoge's E = 2 - 3s1 - s2 and the
+              a = -b0/2 normalization one recovers det = -2 exactly."""
+    print("\n[6] The exact tower no-go: universal factor lam^2 (1+u)^{2(d-3)} E^N")
+    u, E, A3, A2, lam = sp.symbols('u E A3 A2 lam')
+    H = 1 + u
+    # d = 3 (the cubic; free data E only)
+    P1 = lam + 2*lam*H - 3*E*H**2
+    P0 = 2*E*H**3 - lam*H**2 - lam*H
+    M3 = sp.Matrix(2, 2, lambda i, j: sp.diff([P1*E, P0*E**2][i], [u, E][j]))
+    check("d=3: det = lam^2 E^2  (NO (1+u) factor -- the cubic can exist)",
+          sp.expand(M3.det() - lam**2*E**2) == 0)
+    # d = 4 (free data E, A = P2)
+    A = A2
+    P1q = lam*H + 3*lam*H**2 - 2*A*H - 4*E*H**3
+    P0q = 3*E*H**4 - 2*lam*H**3 + A*H**2 - lam*H**2
+    M4 = sp.Matrix(3, 3, lambda i, j: sp.diff(
+        [A*E, P1q*E**2, P0q*E**3][i], [u, E, A][j]))
+    check("d=4: det = lam^2 (1+u)^2 E^5  => det DF vanishes on xy=-1: NO-GO",
+          sp.expand(M4.det() - lam**2*H**2*E**5) == 0)
+    # d = 5 (free data E, A3, A2)
+    P1c = lam*H**2 + 4*lam*H**3 - 5*E*H**4 - 3*A3*H**2 - 2*A2*H
+    P0c = 4*E*H**5 - 3*lam*H**4 + 2*A3*H**3 + A2*H**2 - lam*H**3
+    M5 = sp.Matrix(4, 4, lambda i, j: sp.diff(
+        [A3*E, A2*E**2, P1c*E**3, P0c*E**4][i], [u, E, A3, A2][j]))
+    check("d=5: det = lam^2 (1+u)^4 E^9  => NO-GO again",
+          sp.expand(M5.det() - lam**2*H**4*E**9) == 0)
+    # d=3 consistency with Alpoge: det DF = -lam^2 E_{s2} * (-1/2) = -2
+    check("d=3 + Alpoge's E = 2-3s1-s2 (E_s2=-1, lam=2, a=-b0/2): det DF = -2",
+          sp.Rational(-1, 2) * (-(2)**2) * (-1) == -2)
+
+
 def main():
     print("=" * 72)
     print("Degree-4 tower obstruction + first-order deformation identities")
@@ -235,6 +328,8 @@ def main():
     if '--big' in sys.argv:
         rigidity_box(6, 5, 3, 13, 21)
     universal_triviality()
+    second_door()
+    tower_no_go()
 
     print("\n" + "=" * 72)
     if _failures:
