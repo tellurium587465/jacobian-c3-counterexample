@@ -202,6 +202,18 @@ mathematical contribution of the session:
   two-negative-weight patterns (-1,1,-m,m+5), the monic pattern pending a
   properness proof, non-graded constructions) is recorded in the doc.
 
+# Round 8 (in progress): the Psi breakthrough
+
+Claude located the exact boundary of the round-7 no-go: the fiber identity
+determines (b1, b0) only up to (b1 + x*psi, b0 - t*x*psi), psi weight-3 --
+in invariant form P1 -> P1 + Psi with Psi NOT divisible by H. The no-go's
+forced factor H^{2(d-3)} lives exactly on the Psi = 0 stratum; the general
+determinant provably escapes it. Numerically the Keller least-squares floor
+then collapses from ~1.0 to 7.5e-4 with det* = 0.0859-0.0860 stable across
+three independent runs and lam drifting along a solution curve. Status:
+numeric near-Keller structure, no theorem claimed; the decisive exact
+degree-by-degree solve is queued as the next round.
+
 ## Overall takeaway
 Across seven rounds the two models alternated proposer/verifier roles. Every
 error found (two mathematical, one of framing, one of proof completeness) was

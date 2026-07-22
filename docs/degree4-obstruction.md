@@ -179,8 +179,52 @@ Status of the degree-4 question after this loop:
   eliminating `(b₁, b₀)` from `P(t) = 0, P'(t) = r`, sparse/multi-fixed
   coefficient models, `≥ 2` negative source weights
   (`(−1, 1, −m, m+5)`-type), the monic pattern (pending a properness proof),
-  and non-graded constructions. Geometric degree 4 — if realizable at all —
-  must come from outside the entire derivative-marked tower class.
+  and non-graded constructions.
+
+## 5b. The Ψ breakthrough: the no-go's boundary, and a near-Keller structure
+
+Round 8 of the loop found the *precise* boundary of the tower no-go — and
+stepped over it.
+
+**The exact mathematics (new).** The fiber identity `b₀ + t·b₁ = R` pins down
+the pair `(b₁, b₀)` only up to the shift
+
+```
+(b₁, b₀)  ⟼  (b₁ + x·ψ,  b₀ − t·x·ψ),      ψ any weight-3 polynomial,
+```
+
+which in invariant form reads `P₁ ↦ P₁ + Ψ`, `P₀ ↦ P₀ − HΨ` with `Ψ` **not**
+divisible by `H = 1 + s₁`. The no-go theorem's forced factor `H^{2(d−3)}`
+came exactly from `H | P₁`, `H² | P₀` — which the shift destroys. The general
+determinant (free functions `E, A, Ψ`) provably contains `H`-free terms
+(e.g. `2Ψ²·{A,E}`): **the no-go theorem is sharp — it characterizes the
+`Ψ = 0` stratum, and the full fiber-tower escapes it.** A second exact fact:
+with the mixed marking `m = c·t² + d·t/x`, polynomiality now leaves `c` free
+(`d = λ − c` locked) — a genuine extra modulus.
+
+**The numerical event** (`src/quartic_psi_search.py`; three independent runs,
+different seeds, sample sets and ansätze): the least-squares floor that was
+stuck at `≈ 1.0` through every `Ψ = 0` search **collapses to `7.5×10⁻⁴`**,
+with
+
+```
+det DF ≈ 0.0859–0.0860   (stable across runs; μ = 11.62–11.64)
+λ drifting (1.78 → 1.93 → 2.13):  a solution curve, not an isolated point,
+```
+
+and the determinant constant to 4–5 digits across 50–90 random sample points.
+Honest interpretation — *numeric evidence only, no theorem claimed*: either a
+genuine polynomial Keller map of geometric degree 4 lives at higher ansatz
+degree (the significant coefficients climb the `s₁`-tail, suggesting the
+truncation is what blocks exactness), or a formal, non-polynomial solution
+shadows the family — which would itself set up a sharp
+"formal-yes/polynomial-no" no-go. The decisive experiment is the exact
+degree-by-degree (graded Newton) solve of `det = const` in the `Ψ`-extended
+family; it is the single highest-value computation left on this branch.
+
+Either resolution is a major result: a **new counterexample of geometric
+degree 4** (answering our own public question), or the **complete closure of
+the graded quartic tower** with the exact formal/polynomial dichotomy.
 
 ## 5. Realizable geometric degrees: the sharp open question
 
