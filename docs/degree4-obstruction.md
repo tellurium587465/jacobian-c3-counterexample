@@ -249,11 +249,28 @@ the tested order): the formal version of our public question answers YES.
 What is *not* yet settled: **polynomiality**. The degree-≤6 truncated
 solution satisfies its windows exactly but its full residual profile shows
 `O(10²)` violations at degrees 7–30 — the truncation does not extend as-is.
-The endgame is a finite search: for each truncation degree `D₀`, solve the
-overdetermined system (data `≤ D₀`, all equations through `~3D₀`) — a few
-compute-hours per `D₀` with the implemented solver. A convergent `D₀` yields
-the explicit counterexample; persistent floors across `D₀` build the
-formal-yes/polynomial-no dichotomy.
+
+**Endgame round (first sweep, `src/quartic_truncation_search.py`).** The
+overdetermined truncation search ran for four asymmetric patterns
+`(dE, dA, dP)` — degree caps for `(E, A, P₁)` — with 8 random starts each:
+
+| pattern | unknowns | equations | best residual |
+|---|---|---|---|
+| (2,4,5) | 24 | 314 | 4.1×10⁻¹ |
+| (3,4,6) | 34 | 458 | 1.6×10⁰ |
+| (3,5,6) | 39 | 458 | 2.4×10⁰ |
+| (2,5,7) | 44 | 640 | 1.6×10⁰ |
+
+**All floor at `O(1)`** — no polynomial solution in any tested pattern
+(larger patterns `(4,6,8), (6,6,6), (4,5,7)` exceeded the compute budget and
+remain open). Combined with the formal solution's slowly-decaying,
+non-truncating tail, the evidence now *leans toward the
+formal-yes / polynomial-no dichotomy*: the degree-4 mechanism appears to
+exist as a formal power-series structure but resist polynomial realization —
+which, if proven exactly, would be a sharp new kind of obstruction theorem in
+the Jacobian-Conjecture landscape. Honest status: numerics on both sides;
+the exactness proof (either the polynomial map at a larger pattern/other
+gauge, or the non-truncation theorem) is the open endgame.
 
 ## 5. Realizable geometric degrees: the sharp open question
 
