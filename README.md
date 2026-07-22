@@ -84,6 +84,33 @@ Two further structural theorems, machine-checked ([`docs/geometry.md`](docs/geom
 
 Verification: `python src/verify_image.py` and `python src/verify_rigidity3d.py`.
 
+## Toward degree 4: an obstruction, a correction, and the sharp open question
+
+One full discovery loop, documented in
+[`docs/degree4-obstruction.md`](docs/degree4-obstruction.md):
+
+* **The naive quartic tower dies for a provable reason.** The marked-quartic
+  model on `C⁴` (the obvious `d = 4` analogue of Alpoge's marked cubic) admits
+  a 21-parameter family of polynomial candidates — but an **obstruction
+  lemma** kills all of it: in a grading with a single negative-weight variable
+  `x`, every component of weight `≤ −2` lies in `(x²)`, so `det DF` vanishes
+  on `{x = 0}` and the map is never Keller. Weight arithmetic then classifies
+  the surviving `d = 4` patterns: only coefficient weights `(3,2,1,0,−1)`
+  remain, whose marking `P'(t)` has weight 2 — incompatible with the cubic's
+  `r = 2/x`. A degree-4 tower needs a genuinely new identity: a precisely
+  located open door, not a dead end.
+* **A corrective discovery (round-6 review).** Our "enlarged-box rigidity"
+  computations (`ker L = gauge`: 7 = 7, then 13 = 13) are correct but turn out
+  to be instances of a **universal identity**: for *any* Keller map,
+  `(DF)⁻¹` is polynomial, so every first-order deformation factors as
+  `DF·X` — the first-order deformation theory of every Keller map is
+  trivial. Meaningful uniqueness is a *global* question; the refined
+  **primitive graded cubic uniqueness conjecture** and the two sharp open
+  questions (*does geometric degree 4 occur? does any geometric degree with a
+  prime divisor other than 3 occur?*) are stated in the doc.
+
+Verification: `python src/verify_degree4.py` (add `--big` for the largest box).
+
 ## The Dixmier conjecture falls too
 
 The **Dixmier conjecture** (1968) — every endomorphism of a Weyl algebra

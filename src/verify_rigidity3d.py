@@ -25,8 +25,15 @@ ker L, this proves  ker L = gauge exactly:
 
 Honest scope: first-order only; box-restricted; says nothing about non-graded
 or higher-content deformations, nor about other components of the Keller
-variety.  Within its graded class, though, Alpoge's counterexample admits no
-infinitesimal deformations at all -- it is rigid.
+variety.
+
+IMPORTANT POST-SCRIPT (round-6 review): this result is correct but UNIVERSAL.
+For any Keller map, (DF)^{-1} is polynomial, so every perturbation factors as
+dF = DF.X and delta(det) = det * div X: ker L = source reparametrizations
+holds automatically for every Keller map and compatible box.  This script is
+therefore an implementation check of that identity, not evidence that Alpoge's
+map is special.  See docs/degree4-obstruction.md sections 4-5 and
+verify_degree4.py section [4].
 
 Exits 0 iff all checks pass.  Requires only sympy.
 """

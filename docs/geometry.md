@@ -97,7 +97,15 @@ establish: rigidity for higher weighted degrees or unrestricted supports;
 rigidity under non-graded deformations; that the seven directions integrate to
 genuine automorphism *families* (constant divergence alone does not guarantee
 polynomial integrability); formal rigidity beyond first order; or local
-isolation on the full Keller variety. What it does rule out: any first-order
-family of counterexamples through `F` inside its own graded shape. To our
-knowledge — "apparently the first such computation" — no deformation/rigidity
-analysis of this map was public as of 2026-07-22.
+isolation on the full Keller variety.
+
+**Post-script (round-6 review — important).** The result above is *correct
+but universal*: for **any** Keller map, `(DF)⁻¹ = adj(DF)/det` is polynomial,
+so every polynomial perturbation factors as `δF = DF·X` with
+`X = (DF)⁻¹·δF`, and `δ(det) = det·div X`. Hence `ker L` equals the source
+reparametrizations *automatically*, for every Keller map and every compatible
+box — the computation is an implementation check of this identity (verified
+symbolically in `src/verify_degree4.py` §4), **not** a special property of
+Alpoge's map. The first-order deformation theory of every Keller map is
+trivial; genuine uniqueness questions live globally. See
+[`degree4-obstruction.md`](degree4-obstruction.md) §4–5.

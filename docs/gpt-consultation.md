@@ -148,8 +148,35 @@ rigidity computation. Verdicts:
   list of what is NOT established (integrability, higher order, larger
   supports). GPT found no prior deformation analysis of this map.
 
+# Round 6: degree-4 obstruction + the corrective identity
+
+Claude submitted the quartic-tower obstruction, the enlarged-box rigidity
+table, and a "graded uniqueness conjecture". Verdicts:
+
+* **Obstruction lemma: airtight** (with the primitive normalization wt(x)=-1;
+  general threshold m > q). Weight arithmetic completed: exactly two model
+  families survive for tau >= 1 (k0=3, tau=1 -- the viable non-monic pattern;
+  and the monic k0=4 family), plus two mirror patterns for tau < 0; framed as
+  an "arithmetic screen", not a universal no-go.
+* **Monic gap found**: "monic fiber polynomial => proper" is unproven (t lives
+  in a localization; no integrality argument). Only "proper etale => degree 1"
+  survives. Adopted.
+* **The decisive catch**: the enlarged-box rigidity computations (7=7, 13=13)
+  are *vacuous as uniqueness evidence* -- for ANY Keller map, (DF)^{-1} is
+  polynomial, so every perturbation is DF.X and ker L = source gauge
+  universally. Claude verified the identity symbolically and reframed all
+  rigidity claims as implementation checks. The uniqueness conjecture was
+  restated globally (GPT's "primitive graded cubic uniqueness" formulation)
+  and the genuinely informative future computation (global bracket-equation
+  classification with gauge slicing, modular Groebner) was specified.
+* **Realizable degrees**: attributions fixed (Campbell 1973; Razar 1979;
+  Wright 1981 -- geometric degree 2, distinct from Wang's theorem);
+  multiplicativity of geometric degrees under products confirmed; the sharp
+  public questions adopted: does geometric degree 4 occur? does any geometric
+  degree with a prime divisor other than 3 occur?
+
 ## Overall takeaway
-Across five rounds the two models alternated proposer/verifier roles. Every
+Across six rounds the two models alternated proposer/verifier roles. Every
 error found (two mathematical, one of framing, one of proof completeness) was
 found by the *other* model, and every fix was independently machine-verified
 before adoption. The result — shadow principle + normal form + rigidity theorem + documented
