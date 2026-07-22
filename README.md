@@ -61,6 +61,29 @@ why the `x`-projection is subtler than it looks, are in
 * The **suspension** to all `n >= 3`, and a careful account of why `n = 2` is
   untouched.
 
+## The exact image, and rigidity
+
+Two further structural theorems, machine-checked ([`docs/geometry.md`](docs/geometry.md)):
+
+* **Complete fiber census / exact image.** `|F⁻¹(v)| = 3, 1, 0` according as
+  `A(v) ≠ 0`, `A(v) = 0 ∧ v ∉ Z`, `v ∈ Z`, where
+  `Z = V(3bc−4, 27ac²−4)` — so **`F(C³) = C³ ∖ Z` exactly**: the
+  counterexample misses precisely one closed rational curve (`≅ C*`, a single
+  `C*`-orbit of the weight-`(2,1,−1)` action, shadow point `(4/3, 4/27)` on
+  `Δ = 0`). Corollary: `C³ ∖ Z` is simply connected (codim 2), so the étale
+  3:1 surjection `F` *cannot* be proper — the escape of sheets to infinity is
+  topologically forced, not incidental.
+* **First-order gauge-rigidity.** Within its weighted monomial box (the graded
+  shape of `F` itself, 25 coefficients), *every* first-order deformation
+  preserving `det = const` is induced by a dual-number source/target
+  reparametrization — with separately-constant divergences, as genuine
+  automorphism families require (`dim ker L = 7 =` gauge dimension, gauge ⊆
+  ker L verified). The counterexample admits **no first-order deformations in
+  its graded class** beyond reparametrization — it is rigid there, not a
+  member of a visible continuous family.
+
+Verification: `python src/verify_image.py` and `python src/verify_rigidity3d.py`.
+
 ## The Dixmier conjecture falls too
 
 The **Dixmier conjecture** (1968) — every endomorphism of a Weyl algebra
@@ -124,6 +147,8 @@ python src/collisions.py              # rational triple-collision families
 python src/export_data.py             # rebuild data/ tables
 python src/n2/verify_n2.py            # n=2 program: shadow + rigidity
 python src/dixmier/verify_dixmier.py  # Dixmier + symplectic C^6 package
+python src/verify_image.py            # exact image / fiber census theorem
+python src/verify_rigidity3d.py       # infinitesimal rigidity in the box
 ```
 Expected tail of `verify.py`:
 ```

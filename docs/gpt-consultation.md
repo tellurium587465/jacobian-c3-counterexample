@@ -127,8 +127,29 @@ correct... no fatal mathematical flaw"**, with four repairs, all adopted:
   Belov-Kanel--Kontsevich 2007; Adjamagbo--van den Essen 2007 for the Poisson
   Conjecture; Zheglov's `DC_1` as *announced preprint*, not settled fact).
 
+# Round 5: exact image + rigidity
+
+Claude submitted the fiber-census/exact-image theorem and the infinitesimal
+rigidity computation. Verdicts:
+
+* **Image census: "correct."** Refinements adopted: the topological corollary
+  forces non-properness only (identifying the non-proper locus still needs the
+  fiber analysis; simplest argument: proper maps have closed image and
+  `C^3 \ Z` is not closed); novelty framed as "apparently not previously
+  recorded in the currently public analyses" (the jacobianfun explainer
+  explicitly leaves the complete non-proper-value set open).
+* **Rigidity: "algebraically sound, terminology needs repair."** The decisive
+  catch: genuine automorphism families force `div V = const` and
+  `div W = const` **separately**, not just their sum. Claude re-ran the
+  kernel computation under the stronger separate constraints — the gauge
+  dimension is *still* 7 = dim ker L, so the rigidity conclusion survives in
+  the stronger form. Phrasing fixed to "first-order gauge-rigid inside the
+  weighted monomial box (dual-number reparametrizations)", with an explicit
+  list of what is NOT established (integrability, higher order, larger
+  supports). GPT found no prior deformation analysis of this map.
+
 ## Overall takeaway
-Across four rounds the two models alternated proposer/verifier roles. Every
+Across five rounds the two models alternated proposer/verifier roles. Every
 error found (two mathematical, one of framing, one of proof completeness) was
 found by the *other* model, and every fix was independently machine-verified
 before adoption. The result — shadow principle + normal form + rigidity theorem + documented
