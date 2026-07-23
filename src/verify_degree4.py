@@ -318,6 +318,35 @@ def tower_no_go():
           sp.Rational(-1, 2) * (-(2)**2) * (-1) == -2)
 
 
+def factorization_identity():
+    """[6] The round-10 factorization identity (exact, generic functions):
+
+        J(AE, P1 E^2, P0 E^3) = E^2 * Phi * J(AE, P1 E^2, HE),
+        Phi = 3 lam H^2 - 4 E H^3 - 2 A H - P1,
+        P0  = lam H^3 - E H^4 - A H^2 - P1 H,   H = 1 + S1.
+
+    Hence Keller <=> Phi * J(B,C,T) = delta E^3; for POLYNOMIAL solutions the
+    UFD gives Phi | E^3 -- the sharp obstruction behind the truncation floors."""
+    print("\n[6] Factorization identity: Keller <=> Phi * J(B,C,T) = delta E^3")
+    S1, S2, S3 = sp.symbols('S1 S2 S3')
+    lam = sp.Symbol('lam')
+    E = sp.Function('E')(S1, S2, S3)
+    A = sp.Function('A')(S1, S2, S3)
+    P1 = sp.Function('P1')(S1, S2, S3)
+    H = 1 + S1
+    P0 = lam*H**3 - E*H**4 - A*H**2 - P1*H
+
+    def J3(u, v, w):
+        return sp.Matrix([[sp.diff(f, s) for s in (S1, S2, S3)]
+                          for f in (u, v, w)]).det()
+
+    Phi = 3*lam*H**2 - 4*E*H**3 - 2*A*H - P1
+    lhs = J3(A*E, P1*E**2, P0*E**3)
+    rhs = E**2*Phi*J3(A*E, P1*E**2, H*E)
+    check("J(AE, P1E^2, P0E^3) = E^2 Phi J(AE, P1E^2, HE)  [generic functions]",
+          sp.simplify(lhs - rhs) == 0)
+
+
 def main():
     print("=" * 72)
     print("Degree-4 tower obstruction + first-order deformation identities")
@@ -329,6 +358,7 @@ def main():
         rigidity_box(6, 5, 3, 13, 21)
     universal_triviality()
     second_door()
+    factorization_identity()
     tower_no_go()
 
     print("\n" + "=" * 72)

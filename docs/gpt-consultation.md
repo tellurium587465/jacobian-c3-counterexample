@@ -214,6 +214,32 @@ three independent runs and lam drifting along a solution curve. Status:
 numeric near-Keller structure, no theorem claimed; the decisive exact
 degree-by-degree solve is queued as the next round.
 
+# Round 10: semantics, the factorization identity, and the endgame map
+
+The sharpest round of the project. Claude submitted the "formal degree-4
+Keller structure" claim and the truncation-floor numerics. GPT's verdicts,
+all adopted and (where computational) verified:
+
+* **Semantics correction**: a full formal-series solution would make F a
+  formal AUTOMORPHISM of Spf C[[x,y,z,w]] (formal inverse function theorem),
+  not a formal 4:1 cover -- the quartic identity gives only an auxiliary
+  degree-<=4 relation. "Four sheets" is meaningful only for genuine
+  polynomial/global solutions. Claude's claim was downgraded accordingly.
+* **Strength correction**: the staged-GN result establishes order-6 JETS,
+  not formal existence; jet-lifting may be structurally easy because of...
+* **The factorization identity** (GPT-derived, Claude-verified exactly):
+  J(AE, P1E^2, P0E^3) = E^2 Phi J(AE, P1E^2, HE) with
+  Phi = 3lamH^2-4EH^3-2AH-P1, so Keller <=> Phi J(B,C,T) = delta E^3.
+  For polynomials: Phi | E^3 -- a sharp divisibility obstruction that
+  exactly explains the numeric truncation floors (e.g. k=2: degree-5
+  Phi-top cannot divide e^3). Rigid cases Phi = cE^j remain; j=3 reduces
+  the whole problem to a C^3 Keller triple (back to Alpoge's world).
+  First small-ansatz solve of the j=3 case: only degenerate branches.
+* **Literature**: formal-but-not-polynomial is elementary in general
+  ((x, y+f(x)), f a nonpolynomial series); the close analogues are the
+  formal-inverse machinery (BCW; van den Essen; Abhyankar-Gurjar/Zhao;
+  Meng's formal Legendre transform).
+
 ## Overall takeaway
 Across seven rounds the two models alternated proposer/verifier roles. Every
 error found (two mathematical, one of framing, one of proof completeness) was

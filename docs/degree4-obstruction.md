@@ -243,8 +243,19 @@ support conditions and `det ∂(AE, P₁E², P₀E³)/∂S = δ·E⁵`,
   (`3p(m+3) > p(m)` unknowns vs equations), and every tested stage had
   full-rank solvable systems — consistent with continuation to all orders.
 
-**So a *formal* graded Keller structure of geometric degree 4 exists** (to
-the tested order): the formal version of our public question answers YES.
+**Round-10 corrections (adopted).** Two downgrades to the above, from the
+adversarial review: (i) *semantics* — if the formal series solution exists,
+the induced `F` is a **formal automorphism** of `Spf C[[x,y,z,w]]` (formal
+inverse function theorem; `det DF = δ ≠ 0`), *not* a "formal 4:1 cover"; the
+quartic identity supplies only an auxiliary algebraic relation of degree ≤ 4
+for the Laurent element `t = y + 1/x` over a rationally generated subfield.
+"Four sheets" is meaningful only for genuine polynomial/global solutions.
+(ii) *strength* — what the computation establishes is high-precision
+**order-6 jets**, and the factorization identity below suggests jet-lifting
+may be structurally easy (the problem is one scalar equation for three
+series in a coordinate system `(B,C,T)`); formal existence to all orders is
+plausible but unproven. The nonvacuous content of the whole question is
+**polynomiality** — exactly where the numerics say no.
 
 What is *not* yet settled: **polynomiality**. The degree-≤6 truncated
 solution satisfies its windows exactly but its full residual profile shows
@@ -261,16 +272,66 @@ overdetermined truncation search ran for four asymmetric patterns
 | (3,5,6) | 39 | 458 | 2.4×10⁰ |
 | (2,5,7) | 44 | 640 | 1.6×10⁰ |
 
-**All floor at `O(1)`** — no polynomial solution in any tested pattern
-(larger patterns `(4,6,8), (6,6,6), (4,5,7)` exceeded the compute budget and
-remain open). Combined with the formal solution's slowly-decaying,
-non-truncating tail, the evidence now *leans toward the
-formal-yes / polynomial-no dichotomy*: the degree-4 mechanism appears to
-exist as a formal power-series structure but resist polynomial realization —
-which, if proven exactly, would be a sharp new kind of obstruction theorem in
-the Jacobian-Conjecture landscape. Honest status: numerics on both sides;
-the exactness proof (either the polynomial map at a larger pattern/other
-gauge, or the non-truncation theorem) is the open endgame.
+**All floor at `O(1)`** — no polynomial solution in any tested pattern.
+(A 39× faster vectorized evaluator independently reproduces the `(3,5,6)`
+floor: 2.41 vs 2.36 — the floors are real, not optimizer artifacts.)
+
+**Second sweep (vectorized), eight larger patterns — same verdict:**
+
+| pattern | unknowns | equations | best residual |
+|---|---|---|---|
+| (4,6,8) | 68 | 865 | 2.6 |
+| (6,6,6) | 62 | 458 | 1.3 |
+| (4,5,7) | 51 | 640 | 1.4 |
+| (5,7,9) | 93 | 1041 | 2.7 |
+| (4,6,9) | 80 | 1041 | 2.2 |
+| (5,6,8) | 73 | 865 | 1.7 |
+| (6,8,10) | 124 | 1041 | 2.4 |
+| (3,6,8) | 64 | 865 | 2.4 |
+
+Twelve patterns total, all `O(1)` floors — and §5d's divisibility obstruction
+`Φ | E³` is the exact reason why.
+
+## 5d. The factorization identity (round 10) — the sharpest tool yet
+
+The round-10 review produced, and we verified exactly (sympy, generic
+functions), a factorization of the entire Keller equation. With
+`B = AE`, `C = P₁E²`, `T = HE` and
+
+```
+Φ := 3λH² − 4EH³ − 2AH − P₁ ,
+```
+
+one has the **exact identity**
+
+```
+J(AE, P₁E², P₀E³) = E²·Φ·J(B, C, T),      so   Keller ⟺ Φ·J(B,C,T) = δ·E³.
+```
+
+Consequences:
+
+* **Polynomial obstruction.** For polynomial solutions the UFD gives
+  **`Φ | E³`** — every irreducible factor of `Φ` divides `E`. Since
+  `Φ(0) = −λ ≠ 0` and `E(0) = λ ≠ 0`, the cases are rigid:
+  `Φ = c·E^j` (`j = 0..3`, constants fixed by `λ`) when `E` is irreducible.
+* **Sharp explanation of the numeric floors.** In the balanced pattern
+  `k = d_E = 2`, the top form of `Φ` generically has degree 5, but every
+  divisor of `e³` (`e` irreducible of degree 2) has degree 2, 4 or 6 — the
+  divisibility is *impossible* without extra cancellation. The `O(1)` floors
+  are the numerical shadow of this exact obstruction.
+* **The `j = 3` case reduces dimensions.** `Φ = −E³/λ²` forces
+  `J(B, C, T) = const`: the triple `(B, C, T)` is then a **Keller triple of
+  `C³`** with `C` *determined* by `(B, T)` and the divisibilities `H | T`,
+  `(T/H) | B`. A first small-ansatz exact solve of this case yields only
+  degenerate branches (`J ≡ 0`); larger ansätze — and the tantalizing
+  possibility of plugging in known `C³` Keller maps — are the open
+  continuation.
+* For formal series `Φ` is a *unit* (`Φ(0) ≠ 0`), so no divisibility
+  constrains the formal branch — precisely the formal/polynomial asymmetry
+  the numerics detected.
+
+Honest status: numerics on both sides plus one exact identity; the endgame
+is now a structured case analysis (`Φ = cE^j`) rather than a blind search.
 
 ## 5. Realizable geometric degrees: the sharp open question
 
