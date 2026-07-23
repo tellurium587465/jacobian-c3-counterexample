@@ -319,13 +319,28 @@ Consequences:
   divisor of `e³` (`e` irreducible of degree 2) has degree 2, 4 or 6 — the
   divisibility is *impossible* without extra cancellation. The `O(1)` floors
   are the numerical shadow of this exact obstruction.
-* **The `j = 3` case reduces dimensions.** `Φ = −E³/λ²` forces
-  `J(B, C, T) = const`: the triple `(B, C, T)` is then a **Keller triple of
-  `C³`** with `C` *determined* by `(B, T)` and the divisibilities `H | T`,
-  `(T/H) | B`. A first small-ansatz exact solve of this case yields only
-  degenerate branches (`J ≡ 0`); larger ansätze — and the tantalizing
-  possibility of plugging in known `C³` Keller maps — are the open
-  continuation.
+* **The `j = 3` case reduces dimensions — and also floors.**
+  `Φ = −E³/λ²` forces `J(B, C, T) = const`: the triple `(B, C, T)` is then a
+  **Keller triple of `C³`** with `C` *determined* by `(E, A)` and support
+  locks `A₁ = −5λ, E₁ = 4λ`. A first small-ansatz exact solve yields only
+  degenerate branches, and the dedicated numeric sweep
+  (`src/quartic_rigid_j3_search.py`) floors at `O(1)` through `(dE, dA)`
+  up to `(6, 8)` — 60 unknowns against 3571 equations:
+
+  | (dE,dA) | (2,4) | (3,5) | (4,6) | (4,8) | (5,7) | (5,9) | (6,8) |
+  |---|---|---|---|---|---|---|---|
+  | residual | 3.2 | 2.9 | 3.1 | 3.0 | 2.9 | 3.0 | 5.6 |
+
+  The last structured door within computational reach is closed.
+
+> **Conjecture (polynomial non-realizability of the graded quartic tower).**
+> There are no polynomials `E, A, P₁ ∈ C[S₁,S₂,S₃]` satisfying the support
+> conditions and `Φ·J(AE, P₁E², HE) = δE³` with `δ ≠ 0`. Equivalently,
+> geometric degree 4 is not realizable by the `(−1,1,2,3)`-graded
+> marked-quartic mechanism. (Supported by: 12 general truncation patterns +
+> 7 rigid-case sizes all flooring at `O(1)`; the exact divisibility
+> obstruction `Φ | E³`; and order-6 formal jets showing the *formal* problem
+> is unobstructed — the failure is genuinely about polynomiality.)
 * For formal series `Φ` is a *unit* (`Φ(0) ≠ 0`), so no divisibility
   constrains the formal branch — precisely the formal/polynomial asymmetry
   the numerics detected.
