@@ -86,6 +86,28 @@ Two further structural theorems, machine-checked ([`docs/geometry.md`](docs/geom
 
 Verification: `python src/verify_image.py` and `python src/verify_rigidity3d.py`.
 
+## NEW (2026-07-24): a constant-bracket graded lift — an imprimitive degree-8 counterexample on C⁴
+
+The non-realizability conjecture below is **refuted — by explicit construction**
+([`docs/degree8-counterexample.md`](docs/degree8-counterexample.md)):
+
+```
+b2 = 20xy² − 3xz + 2y ,   e = wx⁴ + x³z − 4x²y + 2x ,  (+ b0, b1)
+det DF = 24 ,   F(1,1,1,1) = F(−1, 3, 193/3, 235/3) = (40, −50, 19, 0).
+```
+
+A Keller map of `C⁴` with an exact rational collision and geometric degree
+**exactly 8 = 4 × 2** (imprimitive monodromy; field-tower proof with the
+machine-verified identity `x²(b1 − 6t² + 4et³ + 2b2t) = 2`). Found by an
+exact identity chain — valuation classification (`Φ ≡ −λ`, `E` squarefree)
+plus a collapse of the whole tower to **one constant-Poisson-bracket
+equation `{A,E}₂₃ = const`** — which *overturned our own conjecture and 19
+numerical searches that had supported it*. Includes a collision-preserving
+infinite family. Honest scope: a public atlas (2026-07-22) independently
+realizes all degrees 3–100 in dimension 3; our distinctive contribution is
+the mechanism, its classification, and the imprimitive tower.
+Verification: `python src/verify_degree8.py`.
+
 ## Toward degree 4: an obstruction, a correction, and the sharp open question
 
 One full discovery loop, documented in

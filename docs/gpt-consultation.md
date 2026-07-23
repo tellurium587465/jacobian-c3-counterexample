@@ -240,6 +240,33 @@ all adopted and (where computational) verified:
   formal-inverse machinery (BCW; van den Essen; Abhyankar-Gurjar/Zhao;
   Meng's formal Legendre transform).
 
+# Round 11: adversarial verification of the discovery
+
+Claude submitted the full chain (valuation lemma -> Phi = -lam -> collapse to
+{A,E}_23 = const -> explicit map -> degree 8). GPT's verdict: **"The core
+claim survives: the displayed map is an exact noninjective Keller map, and
+its geometric degree is rigorously 8"** -- GPT independently recomputed
+det DF = 24 and the collision. Additions, all adopted and machine-verified
+where computational:
+
+* **Valuation lemma: rigorous** (clean rewrite of the proportional-rows
+  argument); plus a new piece: E CONSTANT IS IMPOSSIBLE (it forces
+  {A,P1}_23 = 0), completing the classification with no degenerate branch.
+* **Exact degree-8 proof**: [L(t):L] = 4 by the one-variable function-field
+  theorem; [K:L(t)] = 2 via the identity x^2(b1 - 6t^2 + 4e t^3 + 2b2 t) = 2
+  (machine-verified) with 2/Q a non-square; K = L(t)(x). Degree = 4 x 2 = 8
+  with imprimitive monodromy (blocks of 2).
+* **Collision-preserving infinite family**: A -> A + E(E-lam)^3 R preserves
+  bracket, supports, det = 24, and the SAME rational collision (verified).
+* **Novelty narrowed decisively**: a public counterexample atlas
+  (jacobianfun.org, 2026-07-22, confirmed by Claude) realizes every geometric
+  degree 3..100 in dimension 3 -- no priority on degree 8 or non-3^k degrees.
+  The distinctive package: valuation classification, constant-bracket
+  collapse, the imprimitive 4x2 tower (likely inequivalent to the atlas's
+  degree-8 map if its full-symmetric monodromy holds), and the
+  collision-preserving family. Naming adopted: "constant-bracket graded
+  lifts".
+
 ## Overall takeaway
 Across seven rounds the two models alternated proposer/verifier roles. Every
 error found (two mathematical, one of framing, one of proof completeness) was
