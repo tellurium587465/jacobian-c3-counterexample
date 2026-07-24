@@ -90,6 +90,34 @@ A hypothetical plane counterexample `(P, Q)`, `{P,Q} = 1`, must satisfy:
   4. valuation row-counting on inertia matrices (our technique, aimed at
      the boundary rather than the affine plane).
 
+## Session 2 intelligence (2026-07-24)
+
+* **Minimal-degree correction (literature).** The Vitushkin–Orevkov exotic-
+  covering program: Orevkov excluded 3-sheeted plane Keller maps;
+  Domrina–Orevkov (1998, irreducible ramification curve) + Domrina (1999,
+  general case) are reported to treat the 4-sheeted case — *to be confirmed
+  by direct reading*. Five-sheeted exotic coverings EXIST (Vitushkin;
+  Orevkov's analytic realization; Egorov's extension), so the topological
+  obstruction method saturates at 5 sheets. Working assumption pending
+  verification: **minimal open plane degree = 5**. Since 5 is prime, the
+  extension has NO intermediate fields — the imprimitivity/free-involution
+  attack (Phase 2) is void at d = 5. New sharp Phase-2': the monodromy is a
+  transitive subgroup of S₅ (C₅, D₅, F₂₀, A₅, S₅); C₅ ⟹ Galois ⟹ dead;
+  **can solvable monodromy (D₅, F₂₀) be excluded** via the Galois closure?
+  Then only A₅/S₅ remain.
+* **Synthesis step 1 DONE — the 3D boundary data card**
+  (`src/monodromy3d.py`, machine-measured by numeric continuation):
+  - branch divisor `{A=0}`: local monodromy = **transposition** (all four
+    crossings of a generic line measured);
+  - different crossings give different transpositions; together they
+    generate the **full S₃** (non-Galois, as theory requires);
+  - the colliding pair escapes to `x = ∞` with the **square-root law**
+    `|x| ~ ε^{-1/2}` (measured exponent −0.496);
+  - over the triple-root curve `Z`: all three sheets escape (empty fibers).
+  This is the configuration whose 2D non-realizability is synthesis step 2:
+  the boundary of any completion of `A²` is a *tree* of rational curves, and
+  the question is whether transposition-wrapping escape can live there.
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
@@ -97,3 +125,9 @@ A hypothetical plane counterexample `(P, Q)`, `{P,Q} = 1`, must satisfy:
   boundary-completion problem. Synthesis program adopted as master plan.
   Next session: begin synthesis step 1 (boundary configuration of the 3D
   example) + vet arXiv:2607.20210.
+* **2026-07-24 (session 2)**: synthesis step 1 completed (S₃ + square-root
+  escape data card, machine-measured). Literature: minimal open degree
+  likely 5 (Orevkov 3; Domrina–Orevkov 4 — to confirm; exotic 5-covers
+  exist). Phase 2 re-aimed at excluding solvable degree-5 monodromy.
+  Next: confirm Domrina–Orevkov scope; synthesis step 2 (2D tree
+  obstruction vs transposition-wrapping escape); vet arXiv:2607.20210.
