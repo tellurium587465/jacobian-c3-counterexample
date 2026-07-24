@@ -299,6 +299,66 @@ def theorem_E():
     print("  point sits at such a special cusp.  A5/S5 remain the target.")
 
 
+def cusp_capability():
+    """SESSION-5: which cusps can host the escape (the cusp-gap census).
+
+    THE DOUBLE-COVER TOWER (necessary condition).  For G = D5 the Galois
+    closure gives K < K2 < N with [K2:K] = 2, Gal(N/K2) = C5.  Let W be
+    the double cover of the target plane branched along E (w^2 = delta_E;
+    connected since the meridian maps to the reflection class, nontrivial
+    in D5^ab = C2).  The meridian of the branch curve upstairs pushes to
+    mu^2, and rho(mu^2) = r^2 = 1: so the C5-cover X_N -> W is UNRAMIFIED
+    IN CODIMENSION 1.  Removing points from a smooth surface does not
+    change pi_1, so the cover is detected by pi_1 of the smooth part W_sm:
+
+        D5 monodromy exists  ==>  H_1(W_sm; Z/5) != 0,
+
+    which by Fox's correspondence localizes over the singularities of E:
+    5-torsion of the double-branched-cover homology = 5-colorability data.
+    For F20 the same tower with the quartic cyclic cover W4 (meridian ->
+    4-cycle, order 4 in F20^ab = C4; rho(mu^4) = sigma^4 = 1) gives:
+
+        F20 monodromy  ==>  Z/5 in the C4-twisted homology of W4_sm,
+
+    the classical metabelian criterion: 5 | |Delta_K(i)|^2 locally.
+
+    THE CENSUS (machine-computed): for a torus-knot cusp (m,n),
+    det = |Delta(-1)| and |Delta(i)|^2 decide capability:
+      * both m,n odd  ->  det = 1: NO D5 escape ever;
+      * D5 needs 5 | det: minimal cusp (2,5), i.e. A4: y^2 = x^5, delta=2;
+      * F20 needs 5 | |Delta(i)|^2: minimal cusp (4,5), delta = 6.
+    So an F20 counterexample with irreducible E must pack 4s cusps of
+    delta >= 6 EACH (plus >= 1 multibranch point) into a RATIONAL curve
+    with one place at infinity."""
+    import sympy as sp
+    t = sp.symbols('t')
+
+    def alex_torus(m, n):
+        num = (t**(m*n) - 1) * (t - 1)
+        den = (t**m - 1) * (t**n - 1)
+        return sp.Poly(sp.cancel(sp.simplify(num / den)), t)
+
+    print("\n=== Session 5: cusp capability census ===")
+    rows = []
+    for (m, n) in [(2, 3), (2, 5), (2, 7), (3, 4), (3, 5), (2, 15),
+                   (4, 5), (2, 25), (5, 6), (4, 7), (3, 7), (5, 7)]:
+        D = alex_torus(m, n)
+        det1 = abs(D.eval(-1))
+        det4 = sp.Integer(sp.expand(D.eval(sp.I) * sp.conjugate(D.eval(sp.I))))
+        rows.append(((m, n), det1, det4, det1 % 5 == 0, det4 % 5 == 0))
+    for (mn, d1, d4, d5ok, f20ok) in rows:
+        print(f"  T{mn}: det={d1} {'D5' if d5ok else '--'}  "
+              f"|D(i)|^2={d4} {'F20' if f20ok else '---'}")
+    # verified structural facts used in the docs:
+    assert all(not d5 for (mn, _, _, d5, _) in rows
+               if mn[0] % 2 == 1 and mn[1] % 2 == 1)       # odd-odd: det 1 or odd nondiv? assert no-D5
+    assert dict((mn, d5) for (mn, _, _, d5, _) in rows)[(2, 5)] is True
+    assert dict((mn, f) for (mn, _, _, _, f) in rows)[(4, 5)] is True
+    assert dict((mn, f) for (mn, _, _, _, f) in rows)[(2, 5)] is False
+    print("  minimal D5 cusp = (2,5) [delta 2]; minimal F20 cusp = (4,5)")
+    print("  [delta 6]; odd-odd cusps can never host a D5 escape.")
+
+
 if __name__ == '__main__':
     lemma_A()
     lemma_B_calibration()
@@ -306,4 +366,5 @@ if __name__ == '__main__':
     theorem_D()
     hartogs_sharpness_3d()
     theorem_E()
+    cusp_capability()
     print("\nDEGREE-5 ESCAPE LEDGER: all group-theoretic facts machine-verified.")
