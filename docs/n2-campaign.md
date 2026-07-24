@@ -431,6 +431,33 @@ earlier bookkeeping `Σk_i = 4`: the sheet count is `Σ_p e_p = 4`, so
   divisors (`E`, target `L_∞`, generic line) with the projection
   formula — connectivity alone does not kill.
 
+### The decorated-tree equation system (session-6 framework)
+
+On the SNC completion `X̄ ⊃ C²` (boundary = tree of rational curves)
+with resolved `f̄: X̄ → P²`, the counterexample data must satisfy the
+closed system:
+
+1. **Canonical decoration:** `K_{X̄} = Σ_D a(D)·D` over boundary
+   components only (`div(du∧dv)`; the affine part is étale, so the
+   ramification divisor is purely at the boundary). Adjunction then
+   fixes every self-intersection: `D² = −2 − Σ_{D′} a(D′)(D′·D)`.
+2. **Principal-divisor equations:** `div(z∘f̄) = Ẽ̄ + e·ΣDᵢ + Σm_V V`
+   (`z` = defining equation of `E`) has zero intersection with EVERY
+   complete curve: one linear equation per boundary component; the
+   coefficients `Ẽ̄·D` encode exactly the section-end incidences.
+3. **Form equation:** `Σ a(D)·D = −3·f̄*(L_∞) + R`, `R ≥ 0` boundary-
+   supported; on dicriticals (`m_{L_∞} = 0`) it returns `a = e−1`; on
+   components over the target `L_∞` it gives `a(D) = −3m_D + r_D`.
+4. **Group-theoretic decorations:** two `a = 1` dicriticals birational
+   onto `Ē` (`D₅`) resp. one `a = 3` normalization dicritical (`F₂₀`);
+   `4s` cusp packets; blowup recurrences `a ↦ a+1 / a₁+a₂+1` along the
+   tree.
+
+The counterexample's boundary is a finite decorated tree satisfying
+1–4: a machine-enumerable satisfiability problem (with the caveat that
+tree size is unbounded a priori — a kill must come from equations that
+close globally, e.g. summed intersection identities, not exhaustion).
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
