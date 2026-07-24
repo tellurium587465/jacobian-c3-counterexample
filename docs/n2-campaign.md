@@ -334,6 +334,47 @@ Machine parts in [`src/n2/degree5_ledger.py`](../src/n2/degree5_ledger.py)
   orders along the unique dicritical divisor determine the infinity
   semigroup and may beat abstract one-place rationality.
 
+### Round 17 (same session): section lemma audited, source-side `H₁ = Z`, literature corrections
+
+* **Monochromatic section lemma (retained, corrected form):** *the
+  section reduces the peripheral monodromy over the smooth locus of `E`
+  to the point stabilizer* (`⟨r₀⟩` for `D₅`, `C₄` for `F₂₀` — the
+  latter needs an orientation/continuity supplement). Consequences: all
+  branch colors at multibranch points coincide (round-16 matching
+  equations auto-satisfied — that weapon dies); the `C₅`-datum `φ`
+  vanishes near the ramification curve (simpler proof: `τ` fixes `R`
+  pointwise, anti-invariance gives `2φ = 0 = φ` over `Z/5`). No prior
+  name found; related to Tokunaga's splitting-curve formalism.
+* **Source-side constraint (strong, global):** the Keller map itself is
+  the 5-fold irregular dihedral cover attached to `(ρ, φ)`, and
+  `H₁(C² ∖ Ẽ) = Z` (irreducible curve complement, total linking
+  number). No per-cusp decomposition exists (Fox matrix has global
+  braid/infinity relations) — exploiting it needs a Zariski–van Kampen
+  presentation. Control experiment available: Degtyarev's `4A₄+2A₁`
+  sextic has complement group of order **960** (metabelian quotient
+  `D₁₀ × C₃`).
+* **Literature corrections (important):** Orevkov's analytic
+  realization of the Vitushkin covering is **3-sheeted** (monodromy
+  `S₃`); the 5-sheeted exotic cover is **Egorov 2002, topological,
+  simple-branched ⟹ monodromy necessarily `S₅`**. So no analytic
+  `D₅/F₂₀` exotic 5-cover is known — and no theorem forbids one: the
+  solvable degree-5 case is genuinely open territory, not neutralized
+  by known examples.
+* **Generic-line Hurwitz (verified twice, independently):** with
+  `d = deg E`: `D₅` gives `g(f⁻¹(L)) = d−4 / d−2 / d−3` (by
+  `σ_∞ = 1` / 5-cycle / reflection) with `2d+5 / 2d+1 / 2d+3` places
+  at infinity; `F₂₀` table analogous; only nonnegativity bounds
+  (`d ≥ 4`-ish) — no contradiction from one line. Caveat: only the
+  PARITY of the finite-meridian product survives basing-path changes.
+* **Ranked next moves (round 17):** (1) global Reidemeister–Schreier /
+  Fox computation imposing `H₁ = Z`; (2) **pencil bookkeeping** — the
+  motion of the escaping places must factor through the dicritical
+  covers `D_i → E`, `Σk_i = 4` (much more rigid than one line); (3)
+  **encode the section constraint into the Fox matrix** — best chance
+  for a genuinely new lemma; (4) the sextic control experiment; (5)
+  valuation equations on the dicritical resolution (where Keller enters
+  beyond topology).
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
