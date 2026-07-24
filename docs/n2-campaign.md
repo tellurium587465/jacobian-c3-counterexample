@@ -492,6 +492,44 @@ close globally, e.g. summed intersection identities, not exhaustion).
   a nontrivial Keller pair at all?** (It does for the identity map;
   the question is whether it coexists with `E`-dicriticals.)
 
+### Round 23: the frontier — the degree-5 solvable case reduces to two named open lemmas
+
+Three kill-routes examined (node, Fix=0, degree upper bound); verdict: **none
+closes the case now**, but the residual gap is now two *precise* statements.
+
+* **Clean new fact:** `Fix(σ_E) = 0 ⟹ f⁻¹(E) = ∅` **exactly** (not just
+  generically): a Keller map is étale hence open, so `f(C²) ∩ E` is Zariski
+  open in the irreducible `E`; generic omission forces total omission. So the
+  `Fix=0` cases (`A₅` 5-cycle, `S₅` `(2,3)`) have **no section anywhere** —
+  `E` is entirely omitted, the direct 2D analogue of Alpoge's missing curve
+  `Z`. Chau forces `E` to have a self-intersection (its normalization `A¹`
+  can't inject), but does **not** kill it.
+* **The node (Fix=1) is locally consistent:** exactly one finite point over
+  the node (`#f⁻¹(q₀)=1`, else `d_E≥2`); `f⁻¹(E)` has the same nodal germ
+  (étale base change). **Nothing forces `s ≥ 2`** — the parametrization
+  `t ↦ (t²−1, t³−t)` gives a rational one-place curve with exactly one node,
+  so the `F₂₀` `d≥46` (`s=2`) window is not reachable this way.
+* **No degree upper bound:** `deg E < max(deg P, deg Q)` (Jelonek Thm 15),
+  and the algebraic degrees are uncontrolled; geometric degree 5 and the
+  dicritical count do not bound `deg E`. So the log-BMY *lower* bound has no
+  *upper* partner — no pincer.
+
+* **THE REDUCTION (the campaign's current headline).** A degree-5 plane
+  Keller counterexample with irreducible `E` is excluded **if either** of
+  these open lemmas holds:
+  > **(L1)** An irreducible Keller Jelonek curve is **unibranch** (no
+  > self-intersection). — Then Chau (`E` not `≅ C`) forces a cusp-only `E`,
+  > and Koras–Palka's "≤ 4 cusps, the unique `A₆+3A₂` quintic" **kills every
+  > `D₅`/`F₂₀` config** (verified: our cusp types/degrees never match).
+  >
+  > **(L2)** An étale polynomial map `A²→A²` cannot **totally omit** an
+  > irreducible divisorial component of its nonproperness set. — Then the
+  > `Fix=0` cases die outright.
+  Jelonek's 2020 preprint attempted a statement near (L1) — **withdrawn with
+  recorded errors** (arXiv:2011.03472) — so (L1) is genuinely hard/open.
+  These two lemmas are the exact residual gap between our structural
+  encirclement and a full proof of the degree-5 solvable case.
+
 ### Rounds 21–22: the rational-cuspidal / log-BMY front (session 7, verified + one over-claim corrected)
 
 The Jelonek curve `E` is rational with one place at infinity; in the
