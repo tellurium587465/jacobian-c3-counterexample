@@ -186,6 +186,64 @@ reduces to **unsolvable monodromy only** (`A₅`/`S₅`).
   theorem (all weights, char 0); its quotient formula is our shadow identity
   up to sign conventions. Corroboration, not contradiction.
 
+## Session 4: the degree-5 escape ledger and the omitted-points theorem (2026-07-24)
+
+All group theory and bookkeeping machine-verified in
+[`src/n2/degree5_ledger.py`](../src/n2/degree5_ledger.py). Setup: `f` a
+hypothetical degree-5 plane Keller counterexample, `E` its exceptional
+(Jelonek) curve, `Ẽ = f⁻¹(E)`, monodromy `G ⊆ S₅` transitive.
+
+* **Lemma A (nonempty affine preimage).** `f` is a genuine degree-`d`
+  covering off `E`, so `χ(Ẽ) = dχ(E) − (d−1)`. Empty `Ẽ` would force
+  `χ(E) = (d−1)/d ∉ ℤ`. Hence **`f⁻¹(E) ≠ ∅` always** (any `d ≥ 2`).
+* **Lemma B (sheet-fix bound).** An affine sheet crossing a component `C`
+  of `E` extends `f⁻¹` to a single-valued branch near `C` (étaleness), so
+  it is fixed by the meridian monodromy `σ_C`: **`d_C ≤ Fix(σ_C)`**
+  (`d_C` = generic affine fiber count over `C`). Calibrated on the 3D map:
+  transposition ⟹ exactly 1 affine sheet over `{A=0}` ✓ (measured).
+* **Theorem C (section principle).** Meridians generate plane-curve-
+  complement `π₁`, so the meridian classes must normally generate `G`.
+  Verified class data for the five transitive subgroups gives the ledger:
+
+  | `G` | classes (cycle type, Fix, normally generates) | max `d_C` |
+  |---|---|---|
+  | `D₅` | (2,2) Fix 1 **gen**; (5) Fix 0 | **1** |
+  | `F₂₀` | (4) Fix 1 **gen**; (2,2) Fix 1; (5) Fix 0 | **1** |
+  | `A₅` | (3) Fix 2; (2,2) Fix 1; (5) Fix 0 — all gen | 2 |
+  | `S₅` | (2) Fix 3 **gen**; (4) Fix 1 **gen**; (2,3) Fix 0 **gen**; … | 3 |
+
+  So in the solvable cases every nontrivial-meridian component of `E`
+  keeps **at most one affine sheet** (a section or nothing); `D₅` forces a
+  reflection-meridian component, `F₂₀` a 4-cycle one; 5-cycle components
+  are generically **outside the image** (the 2D analogue of the missing
+  curve `Z` in dimension 3).
+* **Theorem D (omitted-points theorem — the session's main new result).**
+  If `E` is **irreducible** and `G ∈ {D₅, F₂₀}`: the single meridian class
+  must normally generate, so `Fix = 1` is forced; with Lemma A and
+  quasi-finiteness, `d_E = 1` exactly and `Ẽ` is irreducible, an open
+  immersion on normalizations (`Ẽ^ν = C ∖ B`). Euler bookkeeping with
+  `χ(E) = 1 − s` (`s ≥ 1` by Chau's singularity theorem) and
+  `χ(Ẽ) = 1 − β′ − s̃` (`s̃ ≤ s`) closes exactly:
+
+  > **`β′ = 5s − s̃`, so `4s ≤ β′ ≤ 5s`: the image of `f` must omit at
+  > least FOUR isolated points on `E`** — over each, even the surviving
+  > section sheet escapes to infinity.
+
+  A degree-5 solvable-monodromy counterexample with irreducible
+  exceptional curve is thus pinned to a very rigid shape: one section
+  sheet, four escaping sheets everywhere, and a precisely counted set of
+  ≥ 4 puncture points where the section too escapes. Next kill attempt:
+  show a plane polynomial map cannot omit an isolated point in this
+  configuration (local structure at a puncture `q`: all five sheets escape
+  along every approach to `q` — compare Jelonek's K-uniruledness of the
+  nonproper set, and the boundary tree of `A²`-completions).
+* **Caveats kept honest:** (i) reducible `E` allows "silent components"
+  (trivial meridian, only `d_C ≤ 4`) — the ledger constrains but does not
+  yet close them; (ii) Chau `s ≥ 1` is used as the round-13-confirmed
+  statement that exceptional components cannot be `≅ C`; (iii) `A₅/S₅`
+  ledgers are strictly looser — the solvable cases remain the right first
+  target.
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
@@ -199,3 +257,16 @@ reduces to **unsolvable monodromy only** (`A₅`/`S₅`).
   exist). Phase 2 re-aimed at excluding solvable degree-5 monodromy.
   Next: confirm Domrina–Orevkov scope; synthesis step 2 (2D tree
   obstruction vs transposition-wrapping escape); vet arXiv:2607.20210.
+* **2026-07-24 (session 3)**: minimal open degree = 5 confirmed
+  peer-reviewed (Domrina Izvestiya 64 (2000)); Moskowicz audit complete
+  (hinge is an example, not a classification — prime-degree theorem
+  unproven); NEW: index-`p` rare-property family for every prime `p`;
+  root-closed rare-property lemma isolated as the sharpest target.
+* **2026-07-24 (session 4)**: the **degree-5 escape ledger** built and
+  machine-verified (`src/n2/degree5_ledger.py`): sheet-fix bound
+  `d_C ≤ Fix(σ_C)`; section principle for solvable monodromy (`d_C ≤ 1`);
+  **omitted-points theorem**: irreducible-`E` + `D₅/F₂₀` forces the image
+  to omit `β′ = 5s − s̃ ≥ 4` isolated points of `E`. Next: kill the
+  omitted-point configuration (local analysis at a puncture; Jelonek
+  K-uniruledness; boundary tree); then reducible `E` / silent components;
+  GPT round 14 audit of Lemmas A–B and Theorem D.
