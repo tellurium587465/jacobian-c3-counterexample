@@ -492,6 +492,54 @@ close globally, e.g. summed intersection identities, not exhaustion).
   a nontrivial Keller pair at all?** (It does for the identity map;
   the question is whether it coexists with `E`-dicriticals.)
 
+### The degree-5 reduction theorem (session 7, workflow + verified) — the whole battlefield on one page
+
+For a hypothetical degree-5 plane Keller counterexample with **irreducible**
+Jelonek curve `E`, the meridian of `E` is a single conjugacy class that must
+**normally generate** the monodromy `G` (section principle). Classifying by
+that class (all data machine-verified, `src/n2/a5s5_ledger.py` + independent
+recheck) organizes the ENTIRE problem:
+
+| `G` | normally-generating meridian classes | `Fix = d_E` | status |
+|---|---|---|---|
+| `C₅` | 5-cycle | 0 | **dead** (Galois ⟹ automorphism) |
+| `D₅` | reflection `(2,2)` | **1** | cusp collapse: `\|E∖f\|=4s`, `(2,5)`-cusps |
+| `F₂₀` | 4-cycle | **1** | cusp collapse: `\|E∖f\|=4s`, `(4,5)`-cusps |
+| `A₅` | `(2,2)` | **1** | **cusp collapse VERBATIM** (census open — `A₅` perfect) |
+| `A₅` | 3-cycle | 2 | NEW: two degree-1 Hartogs-protected sections |
+| `A₅` | 5-cycle | 0 | NEW: `E` generically OUTSIDE the image |
+| `S₅` | 4-cycle | **1** | **cusp collapse VERBATIM** |
+| `S₅` | transposition | 3 | NEW: three degree-1 sections |
+| `S₅` | `(2,3)` | 0 | NEW: `E` generically outside the image |
+
+* **Universal Hartogs mechanism (the session's structural win).** The
+  cusp-collapse derivation (`theorem_D`: unique section + `\|E∖f\| = 4s`)
+  used ONLY `d_E = Fix(σ_E) = 1` — never anything solvable-specific. So
+  **every `Fix = 1` meridian class, in any group, collapses to the same
+  "4s omitted points at cusps" structure.** `A₅`-`(2,2)` and `S₅`-4-cycle
+  join `D₅`/`F₂₀` verbatim.
+* **What does NOT transfer:** the cusp-capability census (Fox-coloring /
+  Alexander) is a metabelian tool; `A₅` is perfect and `S₅' = A₅`, so no
+  abelian kernel survives for a coloring invariant — which cusps host
+  `A₅`/`S₅` escape is OPEN.
+* **Genuinely new cases:** `Fix ≥ 2` (multiple degree-1 sections, all
+  Hartogs-protected — the bookkeeping of how many are affine is new) and
+  `Fix = 0` (`E` a "purely exceptional" curve, entirely outside the
+  generic image — no `D₅`/`F₂₀` analogue).
+* **Strategic verdict (all four workflow lanes agree):** the
+  topological / combinatorial / group-theoretic encirclement has
+  **saturated**. The abstract decorated-tree recurrences impose no
+  obstruction (explicit minimal 6/7-blowup witnesses; negative-`a`
+  isolated leaves realizable at Fibonacci descent rate — machine
+  search, `src/n2/tree_sat.py`); `λ` provably cannot see `N_∞` (a
+  degree-1 isolated dicritical is a Suzuki/Hà–Lê "regular point at
+  infinity", contributing exactly 0 — independent of the round-20
+  Riemann–Hurwitz proof); the coexistence question is OPEN/PERMITTED
+  in the literature (Borisov frameworks corroborate). **Any remaining
+  obstruction must come from the map `f̄` itself** — the interlock
+  `Σ n_D m_D = 5` with the actual pole/discriminant data is the sharpest
+  map-level lever.
+
 ### Round 20: the P–Q interlock (session 7) — new weapon, one line closed, one error corrected
 
 * **Interlock equations (new, sharp).** On a generic `P`-fiber `Ĉ_c` the
