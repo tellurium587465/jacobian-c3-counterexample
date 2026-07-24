@@ -492,6 +492,57 @@ close globally, e.g. summed intersection identities, not exhaustion).
   a nontrivial Keller pair at all?** (It does for the identity map;
   the question is whether it coexists with `E`-dicriticals.)
 
+### Rounds 21–22: the rational-cuspidal / log-BMY front (session 7, verified + one over-claim corrected)
+
+The Jelonek curve `E` is rational with one place at infinity; in the
+`Fix=1` cases it has `4s` omitted capable cusps (`(2,5)` for `D₅`,
+`(4,5)` for `F₂₀`) and, by Chau, a mandatory multibranch point (`s ≥ 1`).
+So `Ē` is an irreducible **rational plane curve with cusps AND a node**.
+
+* **Mixed log-BMY (Orevkov–Zaidenberg), verified.** For an irreducible
+  rational plane curve of degree `d` with branch excess `s`:
+  `Σ_p M̄ᵖ ≤ 3d − 4 + 2s`, summed over ALL singular points (including at
+  infinity), where the **original Orevkov invariant** of a one-Puiseux
+  cusp is `M̄ᴼ(m,q) = m + q − m/q − q/m − 1` (so `M̄ᴼ(2,5)=31/10`,
+  `M̄ᴼ(4,5)=119/20`, node `= 1`). Calibrated against known curves
+  (cuspidal cubic, 3-cuspidal quartic, `A₆+3A₂` quintic — all pass with
+  slack).
+* **F₂₀, d=9, s=1 is EXCLUDED** (rigorous): four `(4,5)`-cusps
+  (`119/5`) + remaining `δ=4` at branch-excess 1 (min `M̄ᴼ = 4`, e.g.
+  an `A₇` tacnodal point) `= 27.8 > 25`.
+* **Dramatic new degree lower bounds** (corrected computation, optimizing
+  the leftover `δ` into one balanced big cusp — the efficient packing):
+
+  | | `s=1` | `s=2` | `s=3` |
+  |---|---|---|---|
+  | `F₂₀` survives from | `d ≥ 21` | `d ≥ 46` | `d ≳ 70` |
+  | `D₅` survives from | `d = 6` | `d ≥ 22` | `d ≥ 39` |
+
+  (Up from the P4 bounds `d≥9`/`d≥6`.) The forced-contribution sieve
+  `F₂₀: Σ M̄ ≥ (124/5)s`, `D₅: Σ M̄ ≥ (67/5)s` gives the clean rigorous
+  exclusion `(124/5)s > 3d−4+2s` resp. `(67/5)s > …`.
+* **Koras–Palka (2019), the crux.** A complex plane curve *homeomorphic
+  to a line* (purely unibranch, no node) has **≤ 4 singular points**;
+  exactly 4 ⟹ degree 5, the unique `A₆+3A₂` quintic. **If `E` had no
+  node this is a DIRECT KILL** of every `D₅`/`F₂₀` config. The mandatory
+  node (multibranch ⟹ not homeomorphic to a line) is the *single feature*
+  that puts `E` outside Koras–Palka, Palka's 6-cusp, Tono's 8-cusp, and
+  the whole semigroup-distribution / Heegaard–Floer machinery — all
+  literally restricted to the no-node case. **No published bound covering
+  the cusp+node case was found** (a genuine literature gap).
+* **Over-claim corrected (adversarial verification did its job).** My
+  intermediate claim "the whole `F₂₀` branch falls / reduces to a single
+  sextic" was **wrong**: `s` counts branch excess, not `δ`, so the
+  leftover `δ` can sit in one *efficient* big cusp (`M̄/δ → 0`), and
+  high-degree packages pass (explicit: `s=1, d=27`, four `(4,5)`-cusps +
+  node + one `(25,26)`-cusp, `Σ M̄ ≈ 72.8 < 79`). log-BMY is a strong
+  degree-window sieve, **not** a full kill.
+* **Strategic pointer:** the node is **load-bearing**. The kill routes
+  are now (i) an upper bound on `d` (to pincer against the growing
+  log-BMY lower bound), or (ii) a rigidity theorem that tolerates one
+  node, or (iii) showing the Keller/monodromy structure forces the node
+  away or forces `s` large (log-BMY then bites hard).
+
 ### The degree-5 reduction theorem (session 7, workflow + verified) — the whole battlefield on one page
 
 For a hypothetical degree-5 plane Keller counterexample with **irreducible**
