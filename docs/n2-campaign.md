@@ -118,6 +118,36 @@ A hypothetical plane counterexample `(P, Q)`, `{P,Q} = 1`, must satisfy:
   the boundary of any completion of `A²` is a *tree* of rational curves, and
   the question is whether transposition-wrapping escape can live there.
 
+## Session 3: the degree-5 monodromy reduction (2026-07-24)
+
+**New literature anchor.** Nguyen Van Chau (Acta Math. Vietnamica 24, 1999):
+a plane Keller map whose *exceptional value set* is homeomorphic to `C` must
+be bijective (engine: the Lins–Zaidenberg theorem on simply-connected plane
+curves). So the minimal Vitushkin-type boundary configuration is impossible
+polynomially — the exceptional curve of any counterexample must be
+topologically nontrivial. This is the direct 2D counterpart of our 3D
+boundary data card.
+
+**The monodromy fork at degree 5.** If the minimal open degree is 5 (pending
+Domrina–Orevkov scope confirmation), the Galois closure `N` of `L/K` has
+group `G` a transitive subgroup of `S₅` — exactly one of:
+
+| `G` | order | status |
+|---|---|---|
+| `C₅` | 5 | **dead**: `L = N` Galois ⟹ automorphism (Galois-case theorem) |
+| `D₅` | 10 | target: `E = N^{C₅}`, `E/K` quadratic Galois; `N/E` **cyclic** ⟹ Kummer `N = E(u^{1/5})`; note `D₅ ⊂ A₅` ⟹ discriminant is a square |
+| `F₂₀` | 20 | target: `E/K` cyclic quartic; `N/E` cyclic ⟹ Kummer |
+| `A₅` | 60 | unsolvable remainder |
+| `S₅` | 120 | unsolvable remainder |
+
+**The Kummer attack (Phase 2'').** In the solvable cases the geometry is a
+tower `A² ← Y_E ← X_N` with `Y_E` an abelian cover branched only over the
+exceptional curve and `X_N → Y_E` a *cyclic quintic* cover (`z⁵ = s`) — far
+more rigid than a general quintic. Program: étaleness off `E_f` +
+Riemann–Hurwitz + Chau/Lins–Zaidenberg topology of `E_f` against the
+`z⁵ = s` structure. If `D₅` and `F₂₀` fall, the plane conjecture at degree 5
+reduces to **unsolvable monodromy only** (`A₅`/`S₅`).
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
