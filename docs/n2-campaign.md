@@ -400,6 +400,37 @@ onto `E` with constant transverse multiplicity 4**. Correction of the
 earlier bookkeeping `Σk_i = 4`: the sheet count is `Σ_p e_p = 4`, so
 `Σ_i k_i` (covering degrees) is `2` (`D₅`) resp. `1` (`F₂₀`).
 
+### Round-18 adjudication: P2 WON, and strengthened
+
+* **Dicritical profile theorem (audited).** Correct identity
+  `Σᵢ kᵢeᵢ = 4` (`5 = 1 + Σkᵢeᵢ`, degree conservation). `D₅`: all
+  escape clusters have `e = 2`, `Σk = 2`; `F₂₀`: a **single dicritical
+  with `(k,e) = (1,4)` — it IS the normalization `P¹ → Ē`** (at a
+  `(4,5)`-cusp it restricts to `t ↦ (t⁴+…, t⁵+…)`, the normalization,
+  not an immersion). Vertical components affect only special fibers.
+* **`D₅` profile forced to `(1,2) + (1,2)`.** The peripheral image
+  lies in `⟨r₀⟩` (monochromatic lemma), which preserves each 2-cycle
+  of `r₀` separately, so the monodromy on the two boundary clusters is
+  trivial; an irreducible `k = 2` dicritical would give a connected
+  double cover of `E_sm` — contradiction. Hence **two distinct
+  dicriticals, each birational onto `Ē`, each with `e = 2`.**
+* **Keller valuation identity (audited):**
+  `a(Dᵢ) := ord_{Dᵢ}(du∧dv) = eᵢ − 1` — the codimension-1
+  ramification formula fused with the Keller form equality. `D₅`
+  dicriticals: `a = 1`; the `F₂₀` dicritical: `a = 3`.
+  Favre–Jonsson dictionary: thinness `A(ν_D) = (a(D)+1)/b_D`;
+  blowup recurrences `a ↦ a+1` (free) / `a₁+a₂+1` (satellite).
+  Thinness alone cannot characterize dicritical-onto-curve divisors —
+  deprioritized as a kill route.
+* **The missing incidence datum (next target):** at an omitted cusp
+  `q`, where does the closure of the SECTION sheet land — the same
+  boundary point `p ∈ D₁` over `q`, another point of `D₁`, or a
+  vertical component over `q`? Determining this closes the local jet
+  and divisor equations at `F₂₀` cusps (`det Df̄ = u³·unit` or
+  `u³t^{a(V)}·unit`). The `D₅` boundary tree needs decorated pullback
+  divisors (`E`, target `L_∞`, generic line) with the projection
+  formula — connectivity alone does not kill.
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
