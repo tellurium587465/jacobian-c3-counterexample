@@ -458,6 +458,29 @@ The counterexample's boundary is a finite decorated tree satisfying
 tree size is unbounded a priori — a kill must come from equations that
 close globally, e.g. summed intersection identities, not exhaustion).
 
+### Literature-sweep adjudication (subagent C, session 6)
+
+* **Moh-1983 conflation corrected:** "JC2 true for max deg < 100"
+  bounds the ALGEBRAIC degree. Our "degree 5" is the GEOMETRIC degree
+  (sheet count, the Vitushkin–Orevkov–Domrina ladder). No conflict: a
+  geometric-degree-5 counterexample simply has algebraic degree > 100.
+* **Lê–Weber 1994 (full text read):** origin of "dicritical" for JC2.
+  Their Main Theorem excludes Jacobian pairs with a *strongly
+  non-equisingular* dicritical `D₀` (bamboo length ≥ 2 or a critical
+  point of `φ` on `D₀`) whose canonical multiplicity is negative, or
+  positive with **coordinate-pencil restriction degree one**. Our
+  `F₂₀` dicritical has `a = 3 > 0` but `deg(φ|D₀) = k·deg(x̃|_E) ≫ 1`
+  generically — the theorem does not fire directly (`k = 1 ≠` their
+  degree-1 condition; translation gap flagged). **Usable new fact:**
+  their Ehresmann argument + Keller (`∇P ≠ 0`) shows every nontrivial
+  Keller coordinate `P` has a critical point of its pencil `φ` on some
+  dicritical of `φ` — partial strong-non-equisingularity for free.
+* **Abhyankar dicritical school:** general-pencil realizability only —
+  no constant-Jacobian hypothesis anywhere in that line; it neither
+  clears nor kills our profiles. Gwoździewicz–Płoski: local polar
+  theory, NOT-TRANSLATABLE as anticipated. Chau arXiv:0801.4138 is
+  withdrawn (do not cite).
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
