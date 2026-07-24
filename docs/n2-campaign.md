@@ -458,6 +458,40 @@ The counterexample's boundary is a finite decorated tree satisfying
 tree size is unbounded a priori — a kill must come from equations that
 close globally, e.g. summed intersection identities, not exhaustion).
 
+### Round 19: the Lê–Weber fusion (session 6)
+
+* **Every infinity-type pencil dicritical has `a(D) = −m−1 < 0`**
+  (`dP∧dQ = (mp′q + O(u))u^{−m−1}du∧dt`; matches the form equation
+  with `r_D = 2m−1`). All of them are negative-`a` Lê–Weber targets.
+* **Survival forces complete splitting:** `n_D > 1` ⟹ ramification ⟹
+  critical point ⟹ strongly non-equisingular + `a < 0` ⟹ LW kill.
+  So every coordinate pencil of the counterexample must have its
+  residual infinity part split into **`N_∞ ∈ {1,3,5}` degree-one,
+  isolated (length-1 bamboo) dicriticals.** The `E`-dicriticals have
+  restriction degree `k_i·d` (`= d ≥ 6/9`), are automatically
+  ramified/strongly non-equisingular, but evade LW (positive `a`,
+  degree > 1).
+* **`λ(P) = 4d − 4`** (Suzuki–Gavrilov; the affine part is
+  critical-point-free so the whole defect sits at infinity). Sharpened
+  adjunction: `D² = (−2 − Σ_{C≠D} a(C)(C·D))/(a(D)+1)` — integrality
+  congruences with denominators 2 (`D₅`) / 4 (`F₂₀`).
+* **Section incidence deferred** (round-19 correction: `H(0,0) = 0`
+  does not force a vertical component — the extra branch can be `Ẽ̄`
+  itself; principal-divisor equations alone cannot sign `Ẽ̄·D_i`).
+* **λ-budget decomposition (session-6 closing computation, TO AUDIT):**
+  per-special-value jumps: simple tangent line `λ_c = 4`; omitted-cusp
+  line `λ_c = 3`; node line `λ_c = 4`. Ramification budget of
+  `x|_{E^ν}`: `d − 1` total, each `(2,5)`-cusp eats 1 (multiplicity),
+  nodes eat 0, so `T = d−1−4s` simple tangencies. Summing:
+  `4d−4 = 4T + 12s + 4n_mb + λ_∞` ⟹ **`λ_∞ = 4s − 4n_mb`**; with all
+  multibranch points nodes (`n_mb = s`): `λ_∞ = 0` — the budget closes
+  EXACTLY. No contradiction, but the rigidity is now extreme: no
+  atypical value at infinity, all tangencies simple, completely split
+  degree-one infinity dicriticals. **New sharpest question (round-19
+  rank 1): can a degree-one, length-one infinity dicritical occur for
+  a nontrivial Keller pair at all?** (It does for the identity map;
+  the question is whether it coexists with `E`-dicriticals.)
+
 ### Literature-sweep adjudication (subagent C, session 6)
 
 * **Moh-1983 conflation corrected:** "JC2 true for max deg < 100"
