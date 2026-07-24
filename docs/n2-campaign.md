@@ -492,6 +492,45 @@ close globally, e.g. summed intersection identities, not exhaustion).
   a nontrivial Keller pair at all?** (It does for the identity map;
   the question is whether it coexists with `E`-dicriticals.)
 
+### Round 20: the P–Q interlock (session 7) — new weapon, one line closed, one error corrected
+
+* **Interlock equations (new, sharp).** On a generic `P`-fiber `Ĉ_c` the
+  other coordinate `Q` has degree 5 (the geometric degree), and its
+  poles sit only on the infinity dicriticals `I_P`. Hence
+  **`Σ_{D∈I_P} n_D·m_D = 5`** (and symmetrically for `Q`), where
+  `n_D = deg(P|_D)`, `m_D = −v_D(Q)`. With `n_D = 1` the pole partitions
+  of 5 are: `N_P = 1 → (5)`; `N_P = 3 → (3,1,1)` or `(2,2,1)`;
+  `N_P = 5 → (1,1,1,1,1)`. This controls pole orders sharply but does
+  **not** force `N_P = N_Q`.
+* **Genus / λ (audited via Riemann–Hurwitz on `Q: Ĉ_c → P¹`):**
+  `2g_P = A_P − N_P − 3` where `A_P = Σ h_i(e_i−1)`, `h_i = deg(P|_{D_i}) = d`.
+  So `λ(P) = A_P + B_P − 4 = Σ h_i e_i − 4 = 4d − 4` (the `N_P` term
+  cancels — λ cannot distinguish `N_P = 1,3,5`). **New parity:** for
+  `F₂₀`, `2g_P = 3d − N_P − 3` ⟹ **`d + N_P` odd**. A contradiction
+  *iff* `d` and `N_P` parities can be independently pinned to clash —
+  not yet available.
+* **Rank-1 question CLOSED (not a kill):** a degree-1 isolated infinity
+  dicritical does not just coexist with the `E`-dicriticals — it is
+  **forced** (else `Q` is constant on a generic `P`-fiber, contradicting
+  degree 5). Abhyankar–Moh permits it. So "exclude the coexistence" is
+  dead as a route.
+* **Error corrected (my round-19 λ-budget):** the per-value jumps
+  (`simple tangent = 4`, `cusp = 3`, `node = 4`) are **unsupported**.
+  The real formula is Gwoździewicz–Płoski
+  `λ_t(P) = N − deg_X disc_Y(P(X,Y) − t)` (monic coords) — needs the
+  discriminant degrees, which the profile does not supply. The
+  `λ_∞ = 4s − 4n_mb` claim is **withdrawn**.
+* **Caveat on round-19 "complete splitting":** Lê–Weber is stated on the
+  minimal single-coordinate resolution; resolving `Q` too can lengthen a
+  bamboo that is equisingular on the `P`-resolution. The
+  degree-1/length-1 conclusion holds on the minimal `P`-resolution; its
+  transfer to the simultaneous `P,Q`-resolution needs care.
+* **`F₂₀` section landing:** at an omitted `(4,5)`-cusp `q`, the section
+  has a UNIQUE limit `s_q ∈ f̄⁻¹(q)` (since `E^ν → Ē` is bijective over
+  the unibranch cusp); it lands either on `D₁` at the single point over
+  `q̃`, or on a vertical component over `q`. Puiseux data + `a = 3` do
+  not decide — needs the full local resolution.
+
 ### Literature-sweep adjudication (subagent C, session 6)
 
 * **Moh-1983 conflation corrected:** "JC2 true for max deg < 100"
