@@ -59,7 +59,41 @@ A hypothetical plane counterexample `(P, Q)`, `{P,Q} = 1`, must satisfy:
 * **Phase ∞: iterate.** Every phase ends with an adversarial review round
   and a commit, win or lose.
 
+## Round-12 intelligence (2026-07-24, GPT strategy triage)
+
+* **Phase 1 CLOSED — Moskowicz rejected.** The preprint's hinge ("rare
+  property ⟹ degree 2") cites a MathOverflow answer that constructs one
+  example, not a classification: the main theorem is unproven. Salvage: the
+  `xy ∈ K` case is repairable, and the monomial lemma survives conditionally.
+  **However the minimal open plane degree is 4 anyway**, on solid published
+  ground: degree 2 is Galois (dead) and **Orevkov proved degree-3 plane
+  Keller maps impossible**. So: `d = 4` is the true minimal battlefield.
+* **Phase 2 verdict:** the fixed-point-free-involution argument is CORRECT
+  for genuine finite étale quadratic factors (linearization of finite-order
+  plane automorphisms). The intermediate field only gives a rational map a
+  priori; the sharp reformulated target is a **boundary-completion problem**:
+  *can a smooth surface with a free involution contain an open `A²` meeting
+  every orbit?* Log-surface / dual-graph methods apply. Highest EV.
+* **Phase 4 upgrade:** a July-23 preprint (arXiv:2607.20210) proves a
+  hyperbolic quotient-collapse formula (matching our shadow principle) and
+  claims all graded plane Keller maps are automorphisms (matching our
+  round-3 rigidity theorem). To vet; then the strategic question: *can every
+  hypothetical plane counterexample be degenerated to a graded pair without
+  losing the missing-sheet data?* If yes, the plane case closes.
+* **The synthesis program (new master plan):**
+  1. extract the 3D counterexample's boundary configuration (missing
+     divisors, inertia, dual graph);
+  2. prove 2D non-realizability of that configuration (curves at infinity
+     have Riemann–Hurwitz constraints unavailable in 3D);
+  3. classify degree-4 boundary monodromy configurations
+     (`V₄, D₄, C₄, A₄, S₄`) — finite, machine-enumerable;
+  4. valuation row-counting on inertia matrices (our technique, aimed at
+     the boundary rather than the affine plane).
+
 ## Log
 
-* **2026-07-24**: campaign opened. Phase 1 begun (preprint fetched, first
-  reading pass). Phase 2 idea recorded (imprimitivity vs `V_4 ⊂ S_4`).
+* **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
+  (Moskowicz rejected; Orevkov secures `d ≥ 4`). Phase 2 sharpened to the
+  boundary-completion problem. Synthesis program adopted as master plan.
+  Next session: begin synthesis step 1 (boundary configuration of the 3D
+  example) + vet arXiv:2607.20210.
