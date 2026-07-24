@@ -375,6 +375,31 @@ Machine parts in [`src/n2/degree5_ledger.py`](../src/n2/degree5_ledger.py)
   valuation equations on the dicritical resolution (where Keller enters
   beyond topology).
 
+## Session 6: prediction-driven mode (2026-07-24)
+
+Registered predictions (each is a falsifiable bet with a concrete test;
+adjudicate honestly, win or lose):
+
+| # | prediction | confidence | test |
+|---|---|---|---|
+| P1 | the `s=1` `D₅` configuration (4 `(2,5)`-cusps + 1 multibranch pt on a rational one-place curve) cannot satisfy the global collapse `H₁ = Z` | 0.60 | ZvK/Fox computation with section constraint |
+| P2 | escaping-sheet μ-orbits force the dicritical transverse profile: `D₅` ⟹ two boundary points over a generic `y ∈ E`, each of transverse multiplicity 2 (`Σk_i = 2`); `F₂₀` ⟹ ONE boundary point of multiplicity 4 on a single dicritical **birational onto E** | 0.85 | local-model proof + round-18 audit |
+| P3 | the `4A₄+2A₁` sextic's 5-fold irregular cover has `H₁ ≠ Z` (control: even known special position fails the source constraint) | 0.50 | Degtyarev presentation + RS computation (subagent) |
+| P4 | the `F₂₀` case dies on δ-budget + Bézout + Abhyankar–Moh semigroup arithmetic alone at all degrees | 0.40 | feasibility enumeration `d ≤ 16` (subagent) |
+
+**P2 derivation (to audit).** Over generic `y ∈ E` the 4 escaping
+sheets spiral into boundary points `p` of the resolved source
+`X̄ → P²`, lying on dicritical divisors over `E`; the local monodromy
+cycle containing the sheets escaping to one point `p` has length
+`e_p` = the transverse multiplicity of `f̄` at `p`. The μ-escape cycle
+type is `(2,2)` for `D₅` (reflection) and `(4)` for `F₂₀` (4-cycle),
+hence `{e_p} = {2,2}` resp. `{4}`: for `D₅` exactly two boundary
+points over `y` (dicritical degree profile `{1,1}` or `{2}`); for
+`F₂₀` exactly one — **a single dicritical divisor mapping birationally
+onto `E` with constant transverse multiplicity 4**. Correction of the
+earlier bookkeeping `Σk_i = 4`: the sheet count is `Σ_p e_p = 4`, so
+`Σ_i k_i` (covering degrees) is `2` (`D₅`) resp. `1` (`F₂₀`).
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
