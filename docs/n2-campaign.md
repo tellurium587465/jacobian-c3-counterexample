@@ -284,6 +284,56 @@ hypothetical degree-5 plane Keller counterexample, `E` its exceptional
   ledgers are strictly looser — the solvable cases remain the right first
   target.
 
+## Session 5: the double-cover tower and the cusp census (2026-07-24)
+
+Machine parts in [`src/n2/degree5_ledger.py`](../src/n2/degree5_ledger.py)
+(`cusp_capability`); round-16 adversarial audit passed with upgrades.
+
+* **The tower theorem (necessary condition, audited).** For `G = D₅`:
+  the inertia over `E` is a reflection (order 2), so on the double cover
+  `W = {w² = δ_E}` of the target the meridian pushes to `μ² ↦ r² = 1`:
+  the `C₅`-cover `X_N → W` is **unramified in codimension 1**. Hence
+  `D₅` monodromy ⟹ `H₁(W_sm; Z/5) ≠ 0` in the `(−1)`-eigenspace of the
+  deck involution — global Fox 5-coloring data. `F₂₀` analogue via the
+  quartic cyclic cover; local criterion (necessary AND sufficient,
+  Boden–Friedl): `Δ_K(α) ≡ 0 mod 5` with `α² = −1`, i.e.
+  `5 | |Δ_K(i)|²`.
+* **The cusp census (audited, with closed formulas).**
+  `det T(m,n) = 1` (both odd) / `n` (`m` even) / `m` (`n` even);
+  cabling: `Δ_cab(t) = Δ_{T(p,q)}(t)·Δ_K(t^p)`. Consequences:
+  odd–odd cusps never host `D₅`; **minimal `D₅` cusp = `(2,5)` (A₄,
+  `δ = 2`); minimal `F₂₀` cusp = `(4,5)` (`δ = 6`)** — minimal among
+  ALL plane branches (two-Puiseux-pair germs already have `δ ≥ 8`).
+  Subtlety: a `p ≡ 2 mod 4` cabling stage can convert inner
+  `D₅`-capability into `F₂₀`-capability.
+* **δ-budget bounds (new).** The surviving configuration needs `4s`
+  capable cusps + `s` multibranch points: `Σδ_aff ≥ 9s` for `D₅`
+  (degree of `E` ≥ 6 when `s = 1`), `Σδ_aff ≥ 25s` for `F₂₀`
+  (degree ≥ 9).
+* **Longitude theorem (audited).** A knot longitude lies in the
+  commutator subgroup and commutes with the meridian; in `D₅` (and
+  `F₂₀`) `C(μ-image) ∩ [G,G] = 1`, so **every full Frobenius-image
+  representation kills the longitude**: `ρ(λ) = 1`. For torus cusps
+  this re-derives the odd–odd exclusion (no new kill; deprioritized).
+* **Multibranch matching equations (new weapon).** At a retained
+  multibranch point, branches with intersection multiplicity `I`
+  satisfy `2I(c₁ − c₂) ≡ 0 mod 5`: a **node forces equal colors**;
+  distinct colors need `5 | I`. Every multibranch point imposes linear
+  matching conditions on the global 5-coloring eigenspace.
+* **Near-model warning (round 16).** `D₁₀`-special irreducible sextics
+  with `4A₄ + 2A₁` exist (Akyol–Degtyarev geography): four `(2,5)`
+  cusps in special position DO support global dihedral 5-coloring.
+  Not the exact model (two nodes ⟹ `s = 2` would demand eight cusps;
+  one-place-at-infinity fails), but it shows **topology alone is
+  unlikely to close the gap** — Keller-specific input is the missing
+  ingredient.
+* **Ranked plan (round 16):** (1) modular (`F₅`) Libgober/Fitting +
+  Abhyankar–Moh semigroup enumeration under the δ-budgets; (2)
+  multibranch matching equations; (3) model search from the
+  `4A₄ + 2A₁` sextic family; (4) **Keller dicritical data** — pole
+  orders along the unique dicritical divisor determine the infinity
+  semigroup and may beat abstract one-place rationality.
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
