@@ -148,6 +148,44 @@ Riemann–Hurwitz + Chau/Lins–Zaidenberg topology of `E_f` against the
 `z⁵ = s` structure. If `D₅` and `F₂₀` fall, the plane conjecture at degree 5
 reduces to **unsolvable monodromy only** (`A₅`/`S₅`).
 
+## Session 3 outcome: the audit, and a new counterexample family (2026-07-24)
+
+* **Minimal open degree = 5, now peer-reviewed-solid.** Round-13 scope check:
+  Orevkov excludes degrees 2–3; Domrina–Orevkov 1998 (one-dicritical case) +
+  **Domrina, Izvestiya Math. 64 (2000), 1–33 (the full general proof)**
+  exclude degree 4 unconditionally. The 1999 Math Notes item was the
+  announcement.
+* **Moskowicz audit COMPLETE — the prime-degree theorem is unproven.** The
+  hinge ("Answer 2.21") is Laurent Moret-Bailly's MO answer, which we read
+  directly: it *constructs an index-2 example* of a rare-property subfield;
+  it does **not** prove "rare property ⟹ index ≤ 2". Degree 5 is alive.
+* **Our new contribution — the classification is false as field theory.**
+  The family `R = C((2x−y)^p, y−x)` has the rare property with index `p` for
+  **every prime `p`** (proof: σ: s ↦ ζ_p s moves every monomial
+  `(s+v)^i(s+2v)^j` — irreducible-factor multiset comparison in the UFD;
+  machine-checked for `p = 3, 5`, all `i, j ≤ 6`). So no pure-field-theory
+  rescue of the prime-degree exclusion is possible. **But**: our examples
+  have `u = w^p`, violating **root closure** — which Keller subrings enjoy
+  (Jędrzejewicz–Zieliński). The crisp open lemma that would kill degree 5
+  (and all primes):
+
+  > **Root-closed rare-property lemma (open).** If `R = k(u,v) ⊂ k(x,y)`
+  > has the rare property and `k[u,v]` is root-closed (+ square-factorially
+  > closed) in `k[x,y]`, must `[k(x,y):R] ≤ 2`?
+
+* **Kummer geometry corrected (round 13):** escape exponents along a
+  boundary divisor are `p/e` (valuation over transverse inertia) — our 3D
+  square-root law is the case `e = 2, p = 1`; "5-sheeted dicritical" does
+  not by itself force fifth-root behavior (horizontal degree ≠ transverse
+  inertia; `D₅` allows double-transposition inertia, `F₂₀` order-4 inertia).
+  The Kummer attack's sticking point: control of `div(s)` in
+  `Cl(Y_E)/5Cl(Y_E)` plus the valuations of `x, y` along boundary divisors —
+  exactly where our valuation row-counting should be aimed.
+* **arXiv:2607.20210 (Shaska) vetted: sound on first read.** Its
+  positive-weight theorem (all dimensions) complements our plane rigidity
+  theorem (all weights, char 0); its quotient formula is our shadow identity
+  up to sign conventions. Corroboration, not contradiction.
+
 ## Log
 
 * **2026-07-24**: campaign opened. Phase 1 executed and CLOSED same day
